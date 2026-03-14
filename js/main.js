@@ -13,6 +13,28 @@
     onScroll();
   }
 
+  // --- Products dropdown: click to toggle (mobile) + hover (desktop) ---
+  const dropdownItems = document.querySelectorAll('.nav__item--dropdown');
+  dropdownItems.forEach(item => {
+    const trigger = item.querySelector('.nav__link');
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        // On mobile, toggle the dropdown open/closed
+        if (window.innerWidth <= 900) {
+          e.stopPropagation();
+          item.classList.toggle('open');
+        }
+      });
+    }
+  });
+
+  // Close dropdown if clicking outside
+  document.addEventListener('click', (e) => {
+    dropdownItems.forEach(item => {
+      if (!item.contains(e.target)) item.classList.remove('open');
+    });
+  });
+
   // --- Mobile menu ---
   const burger   = document.getElementById('navBurger');
   const navLinks = document.getElementById('navLinks');
@@ -23,13 +45,13 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target)) {
+      if (nav && !nav.contains(e.target)) {
         burger.classList.remove('open');
         navLinks.classList.remove('open');
         document.body.style.overflow = '';
       }
     });
-    navLinks.querySelectorAll('a').forEach(link => {
+    navLinks.querySelectorAll('a.nav__dropdown-item, a.nav__link[href]').forEach(link => {
       link.addEventListener('click', () => {
         burger.classList.remove('open');
         navLinks.classList.remove('open');
@@ -77,8 +99,6 @@
           btn.style.background = '#1E8A62';
           btn.style.boxShadow  = '0 4px 16px rgba(30,138,98,0.3)';
           form.reset();
-
-          // Insert thank-you note
           const thanks = document.createElement('p');
           thanks.textContent = "Thank you — we'll be in touch within 24 hours.";
           thanks.style.cssText = 'color:#1E8A62;font-weight:700;font-size:0.92rem;text-align:center;margin-top:8px;';

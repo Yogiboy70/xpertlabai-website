@@ -167,7 +167,7 @@ p  { font-size: 1.02rem; line-height: 1.8; }
   flex-shrink: 0;
   margin-right: 8px;
 }
-.nav__logo img { height: 34px; width: auto; }
+.nav__logo img { height: 48px; width: auto; object-fit: contain; }
 .nav__logo-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
@@ -216,12 +216,14 @@ p  { font-size: 1.02rem; line-height: 1.8; }
   transition: all 0.22s ease;
   pointer-events: none;
 }
-.nav__item--dropdown:hover .nav__dropdown {
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown.open .nav__dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
+.nav__dropdown-item { cursor: pointer; }
 .nav__dropdown-item {
   display: flex;
   align-items: center;
