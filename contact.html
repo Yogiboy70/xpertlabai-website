@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Talk to the Founder | Xpert Lab AI</title>
+  <meta name="description" content="No sales team, no BDR. Talk directly to the founder of Xpert Lab AI about Xpert ATS, Xpert IQ, Xpert Closr or AI AccelX." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-text">Xpert <span class="nav__logo-accent">Lab</span> AI</span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li class="nav__item nav__item--dropdown">
+        <button class="nav__link">Products <span class="nav__chevron">▾</span></button>
+        <div class="nav__dropdown">
+          <a href="/products/xpert-ats.html" class="nav__dropdown-item">
+            <span class="nav__dropdown-dot nav__dropdown-dot--ats"></span>
+            <div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div>
+          </a>
+          <a href="/products/xpert-iq.html" class="nav__dropdown-item">
+            <span class="nav__dropdown-dot nav__dropdown-dot--iq"></span>
+            <div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div>
+          </a>
+          <a href="/products/xpert-closr.html" class="nav__dropdown-item">
+            <span class="nav__dropdown-dot nav__dropdown-dot--closr"></span>
+            <div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div>
+          </a>
+          <a href="/products/ai-accelx.html" class="nav__dropdown-item">
+            <span class="nav__dropdown-dot nav__dropdown-dot--accelx"></span>
+            <div><strong>AI AccelX</strong><small>AI Transformation</small></div>
+          </a>
+        </div>
+      </li>
+      <li class="nav__item"><a href="/about.html" class="nav__link">About</a></li>
+      <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <a href="/contact.html" class="btn btn--primary btn--sm nav__cta">Request a Demo</a>
+    <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero page-hero--contact">
+  <div class="container">
+    <span class="label fade-up fade-up-1">Get In Touch</span>
+    <h1 class="fade-up fade-up-2">Let's have a<br><span class="accent-text">straight conversation.</span></h1>
+    <p class="page-hero__sub fade-up fade-up-3">No sales team. No discovery call with a BDR before you reach someone who knows the product. You talk directly to the founder — and you get a direct answer about whether Xpert Lab AI is the right fit for your firm.</p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Left: options -->
+      <div>
+        <span class="label reveal">What Can We Help With</span>
+        <div class="contact-options">
+          <div class="contact-option reveal">
+            <div class="contact-option__icon">🎯</div>
+            <h4>Request a Demo</h4>
+            <p>Pick any product and we'll walk you through it live — with your industry's data, your use case, your questions.</p>
+          </div>
+          <div class="contact-option reveal">
+            <div class="contact-option__icon">☁️</div>
+            <h4>Deploy on Your Cloud</h4>
+            <p>Ready to move on Xpert Closr or Xpert ATS? Let's scope the deployment and onboarding directly.</p>
+          </div>
+          <div class="contact-option reveal">
+            <div class="contact-option__icon">🚀</div>
+            <h4>AI AccelX Enquiry</h4>
+            <p>Exploring the transformation programme? Tell us about your organisation and we'll confirm whether the fit is right.</p>
+          </div>
+          <div class="contact-option reveal">
+            <div class="contact-option__icon">💬</div>
+            <h4>General Enquiry</h4>
+            <p>Not sure which product fits? Just want to understand what Xpert Lab AI does? That works too — just say hello.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal">
+        <div class="form-card">
+          <h3 style="margin-bottom: 28px; font-size: 1.6rem;">Send a message</h3>
+          <form class="form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your firm" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="role">Your Role</label>
+                <input type="text" id="role" name="role" placeholder="MD, CFO, HR Head…" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@yourfirm.com" required />
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm interested in</label>
+              <select id="interest" name="interest">
+                <option value="">Select a product or topic…</option>
+                <option value="xpert-ats">Xpert ATS — Talent Acquisition</option>
+                <option value="xpert-iq">Xpert IQ — Finance Intelligence</option>
+                <option value="xpert-closr">Xpert Closr — CRM & Pipeline</option>
+                <option value="ai-accelx">AI AccelX — Transformation Programme</option>
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your firm and what you're looking for…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center; padding: 16px;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="section section--warm">
+  <div class="container" style="max-width: 680px; margin: 0 auto; text-align: center;">
+    <div class="reveal">
+      <span style="font-size: 2rem; display: block; margin-bottom: 16px;">🤝</span>
+      <h3>We respond to every message personally.</h3>
+      <p style="margin-top: 14px; color: var(--text-muted);">Xpert Lab AI is founder-led. When you message us, you hear back from the person who built the product — usually within 24 hours. No automated sequences, no BDR handoffs.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="footer__logo-text">Xpert Lab AI</span>
+      <p>AI transformation partner for mid-size Indian firms.<br>Xpert Lab AI Private Limited, India.</p>
+    </div>
+    <div class="footer__links">
+      <div class="footer__col">
+        <h4>Products</h4>
+        <a href="/products/xpert-ats.html">Xpert ATS</a>
+        <a href="/products/xpert-iq.html">Xpert IQ</a>
+        <a href="/products/xpert-closr.html">Xpert Closr</a>
+        <a href="/products/ai-accelx.html">AI AccelX</a>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="https://xpert-ats.com" target="_blank" rel="noopener">xpert-ats.com ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <p>© 2026 Xpert Lab AI Private Limited. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
