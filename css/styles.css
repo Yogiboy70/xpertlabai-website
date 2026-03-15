@@ -166,8 +166,17 @@ p  { font-size: 1.02rem; line-height: 1.8; }
   gap: 10px;
   flex-shrink: 0;
   margin-right: 8px;
+  background: #1A1A2E;
+  border-radius: 10px;
+  padding: 6px 14px 6px 8px;
+  box-shadow: 0 2px 12px rgba(26,26,46,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  transition: box-shadow 0.2s;
 }
-.nav__logo img { height: 48px; width: auto; object-fit: contain; }
+.nav__logo:hover {
+  box-shadow: 0 4px 20px rgba(26,26,46,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.nav__logo img { height: 42px; width: auto; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(201,168,76,0.3)); }
 .nav__logo-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
