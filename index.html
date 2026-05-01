@@ -163,7 +163,7 @@
   /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
-    background: var(--cream);
+    background: #060e1e url('/assets/images/mumbai-marine-drive.jpg') center 40%/cover no-repeat;
     position: relative;
     overflow: hidden;
     display: flex; align-items: center;
@@ -174,10 +174,7 @@
   }
   .hero-grid-overlay {
     position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(196,98,45,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(196,98,45,0.06) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background: linear-gradient(105deg, rgba(6,14,30,0.93) 0%, rgba(6,14,30,0.80) 42%, rgba(6,14,30,0.55) 65%, rgba(6,14,30,0.35) 100%);
   }
   .hero-gradient-orb {
     position: absolute;
@@ -215,19 +212,19 @@
   .hero-label {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 14px;
-    background: rgba(196,98,45,0.1);
-    border: 1px solid rgba(196,98,45,0.25);
+    background: rgba(201,169,110,0.15);
+    border: 1px solid rgba(201,169,110,0.35);
     border-radius: 100px;
     font-size: 12px;
     font-weight: 600;
-    color: var(--terracotta);
+    color: var(--gold-light);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 24px;
   }
   .hero-label-dot {
     width: 6px; height: 6px;
-    background: var(--terracotta);
+    background: var(--gold);
     border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
   }
@@ -240,16 +237,16 @@
     font-size: clamp(42px, 4.5vw, 72px);
     font-weight: 800;
     line-height: 1.1;
-    color: var(--text-dark);
+    color: white;
     margin-bottom: 24px;
     letter-spacing: -1px;
   }
-  .hero-headline .accent { color: var(--terracotta); }
+  .hero-headline .accent { color: var(--gold); }
   .hero-headline .gold { color: var(--gold); }
   .hero-sub {
     font-size: 18px;
     line-height: 1.7;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.78);
     margin-bottom: 40px;
     max-width: 500px;
   }
@@ -277,9 +274,9 @@
   .btn-secondary {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 14px 28px;
-    background: white;
-    color: var(--text-dark);
-    border: 1.5px solid var(--border);
+    background: rgba(255,255,255,0.10);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.28);
     border-radius: 10px;
     font-size: 15px;
     font-weight: 500;
@@ -288,19 +285,19 @@
     cursor: pointer;
   }
   .btn-secondary:hover {
-    background: var(--cream-light);
-    border-color: var(--terracotta);
-    color: var(--terracotta);
+    background: rgba(255,255,255,0.18);
+    border-color: var(--gold);
+    color: var(--gold);
     transform: translateY(-2px);
   }
   .hero-trust {
     display: flex; align-items: center; gap: 20px;
     padding-top: 24px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.12);
   }
   .hero-trust-text {
     font-size: 12px;
-    color: var(--text-light);
+    color: rgba(255,255,255,0.55);
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
@@ -310,12 +307,12 @@
   }
   .trust-badge {
     padding: 5px 12px;
-    background: white;
-    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    color: var(--text-mid);
+    color: rgba(255,255,255,0.75);
     letter-spacing: 0.5px;
   }
 
