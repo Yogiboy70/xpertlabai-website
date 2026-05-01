@@ -133,15 +133,18 @@
   .nav-dropdown-wrap { position: relative; }
   .nav-dropdown-trigger { cursor: pointer; }
   .nav-dropdown-menu {
-    position: absolute; top: calc(100% + 16px); left: 50%;
-    transform: translateX(-50%);
-    background: white; border: 1px solid rgba(196,98,45,0.15);
-    border-radius: 14px; padding: 10px; min-width: 220px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    padding-top: 12px;
+    background: transparent; min-width: 220px;
     opacity: 0; visibility: hidden; pointer-events: none;
-    transition: opacity 0.2s, transform 0.2s;
-    transform: translateX(-50%) translateY(-6px);
+    transition: opacity 0.18s, transform 0.18s;
     z-index: 100;
+  }
+  .nav-dropdown-inner {
+    background: white; border: 1px solid rgba(196,98,45,0.15);
+    border-radius: 14px; padding: 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
   }
   .nav-dropdown-wrap:hover .nav-dropdown-menu {
     opacity: 1; visibility: visible; pointer-events: all;
@@ -1271,10 +1274,12 @@
     <li class="nav-dropdown-wrap">
       <a href="#products" class="nav-dropdown-trigger">Products ▾</a>
       <div class="nav-dropdown-menu">
-        <a href="/products/xpert-ats.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#2B6CB0;margin-right:10px;"></span><div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div></a>
-        <a href="/products/xpert-iq.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1E8A62;margin-right:10px;"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
-        <a href="/products/xpert-closr.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#C4622D;margin-right:10px;"></span><div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div></a>
-        <a href="/products/ai-accelx.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#7057A0;margin-right:10px;"></span><div><strong>AI AccelX</strong><small>AI Transformation</small></div></a>
+        <div class="nav-dropdown-inner">
+          <a href="/products/xpert-ats.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#2B6CB0;margin-right:10px;"></span><div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div></a>
+          <a href="/products/xpert-iq.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1E8A62;margin-right:10px;"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
+          <a href="/products/xpert-closr.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#C4622D;margin-right:10px;"></span><div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div></a>
+          <a href="/products/ai-accelx.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#7057A0;margin-right:10px;"></span><div><strong>AI AccelX</strong><small>AI Transformation</small></div></a>
+        </div>
       </div>
     </li>
     <li><a href="#tech">AI Lab</a></li>
@@ -2069,7 +2074,7 @@ const KNOWLEDGE_BASE = [
   },
   {
     patterns: ['price', 'cost', 'pricing', 'how much', 'fee', 'afford', 'budget', 'commercial', 'rate'],
-    response: `Engagements start at ₹1 lakh per month — that's our anchor, not a floor.<br><br>The actual structure depends on which platform, the scale of your deployment, and what level of embedded consulting support you need. Some clients start with a single product; others deploy the full ecosystem.<br><br>What I'd say: this is priced against the cost of the problems it solves, not as a software subscription. A single senior placement fee or one avoided finance error often covers several months of engagement.<br><br>For exact commercials, Yogesh handles those conversations directly. Want me to connect you?`
+    response: `Pricing is structured around your specific context — the platform, deployment scale, and level of embedded support you need. We don't publish a rate card because every engagement is shaped to fit your business, not the other way around.<br><br>The best way to get a clear picture is a direct conversation with Yogesh, our founder. He'll give you a straight answer — no sales team, no runaround.<br><br>📧 <a href="mailto:yogesh@xpertlabai.com" style="color:var(--terracotta);font-weight:600;">yogesh@xpertlabai.com</a>`
   },
   {
     patterns: ['integrate', 'api', 'connect', 'integration', 'system', 'existing'],
@@ -2155,4 +2160,4 @@ document.getElementById('chatInput').addEventListener('keydown', function(e) {
 
 </body>
 </html>
-                                                                                         
+                                                     
