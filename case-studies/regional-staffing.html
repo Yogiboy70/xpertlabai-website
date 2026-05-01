@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Regional Staffing Firm | Xpert Lab AI</title>
+<meta name="description" content="How a 4-office Indian staffing firm got live pipeline visibility across a large client base and placed 50+ candidates monthly with Xpert Closr and Xpert ATS.">
+<link rel="stylesheet" href="../css/page-styles.css">
+<style>
+.cs-hero {
+  padding: 100px 0 72px;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.cs-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 30%, rgba(196,98,45,0.2) 0%, transparent 55%);
+}
+.cs-hero-inner { position: relative; z-index: 1; }
+.cs-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none;
+  margin-bottom: 32px; transition: color 0.2s;
+}
+.cs-back:hover { color: var(--gold); }
+.cs-back svg { width: 14px; height: 14px; }
+.cs-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #e08b6a;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cs-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 2px; background: #e08b6a; }
+.cs-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.2vw, 50px);
+  font-weight: 800; line-height: 1.2;
+  color: white; margin-bottom: 24px; max-width: 700px;
+}
+.cs-hero h1 span { color: var(--terracotta-light); }
+.cs-meta-row {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  padding: 24px 0; margin-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.cs-meta-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.cs-meta-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.cs-product-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; margin-right: 6px;
+}
+.pill-ats { background: rgba(43,108,176,0.2); color: #70a8e0; border: 1px solid rgba(43,108,176,0.35); }
+.pill-closr { background: rgba(196,98,45,0.2); color: #e08b6a; border: 1px solid rgba(196,98,45,0.35); }
+
+.cs-stats-bar { background: white; border-bottom: 1px solid var(--border); }
+.cs-stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px; margin: 0 auto; padding: 0 60px;
+}
+.cs-stat { padding: 36px 0; text-align: center; border-right: 1px solid var(--border); }
+.cs-stat:last-child { border-right: none; }
+.cs-stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 800;
+  color: var(--terracotta); line-height: 1; margin-bottom: 6px;
+}
+.cs-stat-lbl { font-size: 13px; color: var(--text-light); line-height: 1.4; }
+
+.cs-content { max-width: 820px; margin: 0 auto; padding: 0 60px; }
+.cs-section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+.cs-section:last-child { border-bottom: none; }
+.cs-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--terracotta);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cs-section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--terracotta); }
+.cs-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.2vw, 32px); font-weight: 800;
+  color: var(--text-dark); line-height: 1.25; margin-bottom: 20px;
+}
+.cs-section p { font-size: 16px; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+.cs-section p:last-child { margin-bottom: 0; }
+
+.cs-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+.cs-benefit {
+  background: var(--cream-light); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px;
+}
+.cs-benefit h5 { font-size: 14px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+.cs-benefit p { font-size: 13px; line-height: 1.6; color: var(--text-light); margin: 0; }
+
+.cs-cta { background: var(--navy); padding: 72px 0; text-align: center; }
+.cs-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 800; color: white; margin-bottom: 16px;
+}
+.cs-cta h2 span { color: var(--terracotta-light); }
+.cs-cta p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+
+@media (max-width: 860px) {
+  .cs-stats-row { grid-template-columns: 1fr; padding: 0 24px; }
+  .cs-stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-content { padding: 0 24px; }
+  .cs-two-col { grid-template-columns: 1fr; }
+  .container { padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="pnav" id="pnav">
+  <a href="/" class="pnav-logo"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:34px;width:auto;"></a>
+  <ul class="pnav-links">
+    <li class="pnav-dropdown-wrap">
+      <button>Products ▾</button>
+      <div class="pnav-dropdown">
+        <div class="pnav-dropdown-inner">
+        <a href="/products/xpert-ats.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#2B6CB0"></span><div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div></a>
+        <a href="/products/xpert-iq.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#1E8A62"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
+        <a href="/products/xpert-closr.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#C4622D"></span><div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div></a>
+        <a href="/products/ai-accelx.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#7057A0"></span><div><strong>AI AccelX</strong><small>AI Transformation</small></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/contact.html" class="pnav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+<section class="cs-hero">
+  <div class="container cs-hero-inner">
+    <a href="/#case-studies" class="cs-back">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
+      Client stories
+    </a>
+    <div class="cs-eyebrow">Case Study · Staffing</div>
+    <h1>A large client pipeline.<br>Finally <span>visible in real time</span>.</h1>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Industry</div>
+        <div class="cs-meta-value">Recruitment & Staffing</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Size</div>
+        <div class="cs-meta-value">4 offices across India</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Placements</div>
+        <div class="cs-meta-value">50+ per month</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Products deployed</div>
+        <div class="cs-meta-value">
+          <span class="cs-product-pill pill-closr">Xpert Closr</span>
+          <span class="cs-product-pill pill-ats">Xpert ATS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-stats-bar">
+  <div class="cs-stats-row">
+    <div class="cs-stat reveal">
+      <div class="cs-stat-val">50+</div>
+      <div class="cs-stat-lbl">placements per month</div>
+    </div>
+    <div class="cs-stat reveal reveal-d1">
+      <div class="cs-stat-val">Live</div>
+      <div class="cs-stat-lbl">client pipeline across all 4 offices</div>
+    </div>
+    <div class="cs-stat reveal reveal-d2">
+      <div class="cs-stat-val">Zero</div>
+      <div class="cs-stat-lbl">dropped client opportunities</div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-content">
+
+  <div class="cs-section">
+    <div class="cs-section-label">The challenge</div>
+    <h2>A healthy client pipeline — invisible across four offices.</h2>
+    <p>This firm had built strong client relationships across India. The pipeline was real and the opportunities were genuine. The problem was that nobody could see the full picture. Each office tracked clients in its own way — some in spreadsheets, some in shared folders, some in email threads that only the account manager could navigate.</p>
+    <p>BD teams didn't know what the other offices were doing. Warm leads went cold because no one was watching them. Clients who had been contacted once didn't get a follow-up until it was too late. And the leadership team had no way to know, at any given moment, how the business was actually performing — they were always working from a week-old summary someone had assembled manually.</p>
+    <p>On the delivery side, candidate tracking had the same problem — each recruiter had their own system, and coordinating across offices on shared mandates was more friction than anyone wanted to deal with.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The solution</div>
+    <h2>Closr for clients. ATS for candidates. One operating picture.</h2>
+    <p>Xpert Closr gave the BD and delivery teams a single live view of every client relationship and open opportunity across all four offices. Every account, every stage, every interaction — visible to the whole team, always current.</p>
+
+    <div class="cs-two-col">
+      <div class="cs-benefit">
+        <h5>Live client pipeline</h5>
+        <p>Every active client and prospect visible in real time. No stale summaries, no end-of-week catch-ups to find out what moved.</p>
+      </div>
+      <div class="cs-benefit">
+        <h5>Cross-office coordination</h5>
+        <p>BD teams across all four offices working from the same pipeline. No duplicate outreach, no missed handoffs.</p>
+      </div>
+      <div class="cs-benefit">
+        <h5>Candidate pipeline via ATS</h5>
+        <p>Xpert ATS brought the same clarity to candidate tracking — fewer dropped balls, cleaner handoffs between recruiters.</p>
+      </div>
+      <div class="cs-benefit">
+        <h5>Follow-up discipline built in</h5>
+        <p>Closr's stage-based structure meant warm leads didn't go cold. The system flagged what needed attention before it slipped.</p>
+      </div>
+    </div>
+
+    <p>Both products deployed into the firm's own environment. Their client and candidate data stayed exactly where it should — with them.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The results</div>
+    <h2>50+ placements a month. And a business that can finally see itself.</h2>
+    <p>The most immediate impact was visibility. Leadership could see, for the first time, the real state of the client pipeline — not what someone estimated, but what was actually happening right now across all four offices.</p>
+    <p>With Closr managing client relationships and ATS managing candidate flow, the team stopped losing opportunities in the gaps between systems. Placements reached 50+ per month — and the firm has a clear platform to grow from.</p>
+  </div>
+
+</div>
+
+<section class="cs-cta">
+  <div class="container">
+    <h2>Your pipeline deserves<br>to be <span>seen clearly</span>.</h2>
+    <p>If your BD team is working blind across offices, Xpert Closr can fix that. Book a 30-minute call and we'll show you how.</p>
+    <a href="/contact.html" class="btn btn-terra" style="font-size:15px; padding:14px 32px;">Book a Demo</a>
+  </div>
+</section>
+
+<footer class="pfooter">
+  <div class="pfooter-inner">
+    <div class="pfooter-brand">
+      <a href="/"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:30px;width:auto;"></a>
+      <p>AI-native products for Indian organisations. Built from the ground up with domain expertise, state-of-the-art technology and a bias for outcomes.</p>
+    </div>
+    <div class="pfooter-links">
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Products</div>
+        <a href="/products/xpert-ats.html">Xpert ATS</a>
+        <a href="/products/xpert-iq.html">Xpert IQ</a>
+        <a href="/products/xpert-closr.html">Xpert Closr</a>
+        <a href="/products/ai-accelx.html">AI AccelX</a>
+      </div>
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Company</div>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/contact.html">Book a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter-bottom">
+    <span>&#169; 2025 Xpert Lab AI. All rights reserved.</span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+const pnav = document.getElementById("pnav");
+if (pnav) window.addEventListener("scroll", function(){ pnav.classList.toggle("scrolled", window.scrollY > 40); });
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal").forEach(function(el){
+  var r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("visible"); } else { obs.observe(el); }
+});
+</script>
+</body>
+</html>

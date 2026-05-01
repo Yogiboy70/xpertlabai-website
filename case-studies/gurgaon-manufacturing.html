@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Gurgaon Manufacturing Firm | Xpert Lab AI</title>
+<meta name="description" content="How a Gurgaon manufacturing plant consolidated fragmented hiring pipelines with Xpert ATS — achieving 50% TA team effectiveness gains in early deployment.">
+<link rel="stylesheet" href="../css/page-styles.css">
+<style>
+.cs-hero {
+  padding: 100px 0 72px;
+  background: var(--navy);
+  position: relative; overflow: hidden;
+}
+.cs-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 75% 25%, rgba(43,108,176,0.18) 0%, transparent 60%);
+}
+.cs-hero-inner { position: relative; z-index: 1; }
+.cs-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none;
+  margin-bottom: 32px; transition: color 0.2s;
+}
+.cs-back:hover { color: var(--gold); }
+.cs-back svg { width: 14px; height: 14px; }
+.cs-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #70a8e0;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cs-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 2px; background: #70a8e0; }
+.cs-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.2vw, 50px);
+  font-weight: 800; line-height: 1.2;
+  color: white; margin-bottom: 24px; max-width: 680px;
+}
+.cs-hero h1 span { color: #70a8e0; }
+.cs-meta-row {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  padding: 24px 0; margin-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.cs-meta-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.cs-meta-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.cs-product-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600;
+}
+.pill-ats { background: rgba(43,108,176,0.2); color: #70a8e0; border: 1px solid rgba(43,108,176,0.35); }
+
+.cs-stats-bar { background: white; border-bottom: 1px solid var(--border); }
+.cs-stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px; margin: 0 auto; padding: 0 60px;
+}
+.cs-stat { padding: 36px 0; text-align: center; border-right: 1px solid var(--border); }
+.cs-stat:last-child { border-right: none; }
+.cs-stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 800;
+  color: #2B6CB0; line-height: 1; margin-bottom: 6px;
+}
+.cs-stat-lbl { font-size: 13px; color: var(--text-light); line-height: 1.4; }
+
+.cs-content { max-width: 820px; margin: 0 auto; padding: 0 60px; }
+.cs-section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+.cs-section:last-child { border-bottom: none; }
+.cs-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #2B6CB0;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cs-section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: #2B6CB0; }
+.cs-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 2.2vw, 32px); font-weight: 800;
+  color: var(--text-dark); line-height: 1.25; margin-bottom: 20px;
+}
+.cs-section p { font-size: 16px; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+.cs-section p:last-child { margin-bottom: 0; }
+
+.cs-early-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(43,108,176,0.08); border: 1px solid rgba(43,108,176,0.2);
+  border-radius: 8px; padding: 12px 18px;
+  margin-top: 28px;
+  font-size: 14px; color: #1a4f80; line-height: 1.5;
+}
+
+.cs-cta { background: var(--navy); padding: 72px 0; text-align: center; }
+.cs-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 2.2vw, 34px);
+  font-weight: 800; color: white; margin-bottom: 16px;
+}
+.cs-cta h2 span { color: #70a8e0; }
+.cs-cta p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 32px; line-height: 1.7; }
+
+@media (max-width: 860px) {
+  .cs-stats-row { grid-template-columns: 1fr; padding: 0 24px; }
+  .cs-stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-content { padding: 0 24px; }
+  .container { padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="pnav" id="pnav">
+  <a href="/" class="pnav-logo"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:34px;width:auto;"></a>
+  <ul class="pnav-links">
+    <li class="pnav-dropdown-wrap">
+      <button>Products ▾</button>
+      <div class="pnav-dropdown">
+        <div class="pnav-dropdown-inner">
+        <a href="/products/xpert-ats.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#2B6CB0"></span><div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div></a>
+        <a href="/products/xpert-iq.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#1E8A62"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
+        <a href="/products/xpert-closr.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#C4622D"></span><div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div></a>
+        <a href="/products/ai-accelx.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#7057A0"></span><div><strong>AI AccelX</strong><small>AI Transformation</small></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/contact.html" class="pnav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+<section class="cs-hero">
+  <div class="container cs-hero-inner">
+    <a href="/#case-studies" class="cs-back">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
+      Client stories
+    </a>
+    <div class="cs-eyebrow">Case Study · Manufacturing</div>
+    <h1>One plant. Dozens of open roles.<br>Finally, <span>one place to see them all</span>.</h1>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Industry</div>
+        <div class="cs-meta-value">Manufacturing</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Location</div>
+        <div class="cs-meta-value">Gurgaon, India</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Product deployed</div>
+        <div class="cs-meta-value"><span class="cs-product-pill pill-ats">Xpert ATS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-stats-bar">
+  <div class="cs-stats-row">
+    <div class="cs-stat reveal">
+      <div class="cs-stat-val">50%</div>
+      <div class="cs-stat-lbl">TA team effectiveness gain</div>
+    </div>
+    <div class="cs-stat reveal reveal-d1">
+      <div class="cs-stat-val">1 view</div>
+      <div class="cs-stat-lbl">consolidated pipeline, all functions</div>
+    </div>
+    <div class="cs-stat reveal reveal-d2">
+      <div class="cs-stat-val">Zero</div>
+      <div class="cs-stat-lbl">duplicate effort across hiring teams</div>
+    </div>
+  </div>
+</div>
+
+<div class="cs-content">
+
+  <div class="cs-section">
+    <div class="cs-section-label">The challenge</div>
+    <h2>Hiring across functions with no central thread.</h2>
+    <p>For a plant operation of this scale, recruitment is continuous. Floor supervisors, engineers, quality managers, logistics heads — multiple functions hiring simultaneously, each with their own spreadsheets, their own tracking, their own version of what was open and what had already been filled.</p>
+    <p>The TA team had no single view of what was happening. Roles were being worked on in parallel without coordination. Candidates were sometimes approached twice. Managers didn't know where things stood without chasing someone by phone or message. It wasn't a people problem — it was a visibility problem that no spreadsheet was ever going to fix.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The solution</div>
+    <h2>Xpert ATS: one pipeline for every open role in the plant.</h2>
+    <p>Xpert ATS brought all open roles — across all functions — into a single consolidated pipeline. Every stage visible. Every candidate tracked. Every team member working from the same picture.</p>
+    <p>Duplicate effort disappeared. The TA team stopped spending time reconciling information across departments and started spending it on what actually matters: finding and moving the right people through the process.</p>
+    <p>For the first time, hiring managers could see the status of their roles without asking anyone. And leadership could see, at a glance, where the plant stood on its hiring targets.</p>
+
+    <div class="cs-early-badge">
+      Early deployment — and already a strong foundation. The results here represent the first phase; we're only getting started.
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">The results</div>
+    <h2>50% more effective. From the very first month.</h2>
+    <p>Within the first phase of deployment, the TA team measured a 50% improvement in overall effectiveness — roles progressing faster, fewer candidates lost in the process, and a clear audit trail for every hiring decision.</p>
+    <p>The single consolidated pipeline didn't just save time. It changed how the team worked — from reactive and fragmented to coordinated and proactive. That shift is the foundation everything else gets built on.</p>
+  </div>
+
+</div>
+
+<section class="cs-cta">
+  <div class="container">
+    <h2>Hiring chaos is fixable.<br><span>It starts with visibility.</span></h2>
+    <p>If your TA team is working across spreadsheets and group chats, Xpert ATS can change that in weeks — not months.</p>
+    <a href="/contact.html" class="btn btn-blue" style="font-size:15px; padding:14px 32px;">Book a Demo</a>
+  </div>
+</section>
+
+<footer class="pfooter">
+  <div class="pfooter-inner">
+    <div class="pfooter-brand">
+      <a href="/"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:30px;width:auto;"></a>
+      <p>AI-native products for Indian organisations. Built from the ground up with domain expertise, state-of-the-art technology and a bias for outcomes.</p>
+    </div>
+    <div class="pfooter-links">
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Products</div>
+        <a href="/products/xpert-ats.html">Xpert ATS</a>
+        <a href="/products/xpert-iq.html">Xpert IQ</a>
+        <a href="/products/xpert-closr.html">Xpert Closr</a>
+        <a href="/products/ai-accelx.html">AI AccelX</a>
+      </div>
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Company</div>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/contact.html">Book a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter-bottom">
+    <span>&#169; 2025 Xpert Lab AI. All rights reserved.</span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+const pnav = document.getElementById("pnav");
+if (pnav) window.addEventListener("scroll", function(){ pnav.classList.toggle("scrolled", window.scrollY > 40); });
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal").forEach(function(el){
+  var r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("visible"); } else { obs.observe(el); }
+});
+</script>
+</body>
+</html>

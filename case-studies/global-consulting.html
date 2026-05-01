@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Global Management Consulting Firm | Xpert Lab AI</title>
+<meta name="description" content="How a 200+ person management consulting firm across New York, London and Singapore transformed their sales pipeline and finance operations with Xpert Closr and Xpert IQ.">
+<link rel="stylesheet" href="../css/page-styles.css">
+<style>
+.cs-hero {
+  padding: 100px 0 80px;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.cs-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(196,98,45,0.18) 0%, transparent 60%);
+}
+.cs-hero-inner { position: relative; z-index: 1; }
+.cs-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none;
+  margin-bottom: 32px; transition: color 0.2s;
+}
+.cs-back:hover { color: var(--gold); }
+.cs-back svg { width: 14px; height: 14px; }
+.cs-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cs-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--gold); }
+.cs-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 54px);
+  font-weight: 800; line-height: 1.15;
+  color: white; margin-bottom: 24px; max-width: 760px;
+}
+.cs-hero h1 span { color: var(--terracotta-light); }
+.cs-meta-row {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  padding: 24px 0; margin-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.cs-meta-item { }
+.cs-meta-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.cs-meta-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.cs-product-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; margin-right: 6px; margin-top: 4px;
+}
+.pill-ats { background: rgba(43,108,176,0.2); color: #70a8e0; border: 1px solid rgba(43,108,176,0.35); }
+.pill-closr { background: rgba(196,98,45,0.2); color: #e08b6a; border: 1px solid rgba(196,98,45,0.35); }
+.pill-iq { background: rgba(30,138,98,0.2); color: #5ec9a0; border: 1px solid rgba(30,138,98,0.35); }
+
+/* Stat bar */
+.cs-stats-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+.cs-stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px; margin: 0 auto; padding: 0 60px;
+}
+.cs-stat {
+  padding: 36px 0;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.cs-stat:last-child { border-right: none; }
+.cs-stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 800;
+  color: var(--terracotta); line-height: 1;
+  margin-bottom: 6px;
+}
+.cs-stat-lbl { font-size: 13px; color: var(--text-light); line-height: 1.4; }
+
+/* Content */
+.cs-content { max-width: 820px; margin: 0 auto; padding: 0 60px; }
+.cs-section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+.cs-section:last-child { border-bottom: none; }
+.cs-section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--terracotta);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cs-section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: var(--terracotta); }
+.cs-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 2.5vw, 34px); font-weight: 800;
+  color: var(--text-dark); line-height: 1.25; margin-bottom: 20px;
+}
+.cs-section p {
+  font-size: 16px; line-height: 1.85;
+  color: var(--text-mid); margin-bottom: 16px;
+}
+.cs-section p:last-child { margin-bottom: 0; }
+
+/* Blockquote */
+.cs-quote-block {
+  border-left: 3px solid var(--gold);
+  padding: 20px 0 20px 28px;
+  margin: 40px 0;
+}
+.cs-quote-block p {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; line-height: 1.6;
+  color: var(--text-dark); font-style: italic; margin: 0 0 12px;
+}
+.cs-quote-block cite {
+  font-size: 13px; color: var(--text-light); font-style: normal;
+}
+
+/* Solution cards */
+.cs-solution-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px; margin: 32px 0;
+}
+.cs-solution-card {
+  background: var(--cream-light);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 24px;
+}
+.cs-solution-card-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  margin-bottom: 14px;
+}
+.cs-solution-card h4 {
+  font-size: 14px; font-weight: 700;
+  color: var(--text-dark); margin-bottom: 8px;
+}
+.cs-solution-card p {
+  font-size: 13px; line-height: 1.65;
+  color: var(--text-light); margin: 0;
+}
+
+/* Results */
+.cs-results-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin: 32px 0;
+}
+.cs-result-item {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.cs-result-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 800;
+  color: var(--terracotta); line-height: 1;
+  flex-shrink: 0; min-width: 80px;
+}
+.cs-result-text h5 {
+  font-size: 14px; font-weight: 700;
+  color: var(--text-dark); margin-bottom: 4px;
+}
+.cs-result-text p {
+  font-size: 12.5px; color: var(--text-light);
+  line-height: 1.5; margin: 0;
+}
+
+/* CTA */
+.cs-cta {
+  background: var(--navy);
+  padding: 72px 0;
+  text-align: center;
+}
+.cs-cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 2.5vw, 38px);
+  font-weight: 800; color: white;
+  margin-bottom: 16px;
+}
+.cs-cta h2 span { color: var(--terracotta-light); }
+.cs-cta p {
+  font-size: 16px; color: rgba(255,255,255,0.55);
+  max-width: 520px; margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .cs-stats-row { grid-template-columns: 1fr 1fr; padding: 0 24px; }
+  .cs-stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-content { padding: 0 24px; }
+  .cs-solution-grid { grid-template-columns: 1fr; }
+  .cs-results-grid { grid-template-columns: 1fr; }
+  .cs-meta-row { gap: 20px; }
+  .container { padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="pnav" id="pnav">
+  <a href="/" class="pnav-logo"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:34px;width:auto;"></a>
+  <ul class="pnav-links">
+    <li class="pnav-dropdown-wrap">
+      <button>Products ▾</button>
+      <div class="pnav-dropdown">
+        <div class="pnav-dropdown-inner">
+        <a href="/products/xpert-ats.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#2B6CB0"></span><div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div></a>
+        <a href="/products/xpert-iq.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#1E8A62"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
+        <a href="/products/xpert-closr.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#C4622D"></span><div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div></a>
+        <a href="/products/ai-accelx.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#7057A0"></span><div><strong>AI AccelX</strong><small>AI Transformation</small></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/contact.html" class="pnav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrap">
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="container cs-hero-inner">
+    <a href="/#case-studies" class="cs-back">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
+      Client stories
+    </a>
+    <div class="cs-eyebrow">Case Study · Management Consulting</div>
+    <h1>From stale pipelines and<br>monthly finance marathons<br>to <span>live intelligence</span>.</h1>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Firm type</div>
+        <div class="cs-meta-value">Global management consulting</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Size</div>
+        <div class="cs-meta-value">200+ consultants</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Offices</div>
+        <div class="cs-meta-value">New York · London · Singapore</div>
+      </div>
+      <div class="cs-meta-item">
+        <div class="cs-meta-label">Products deployed</div>
+        <div class="cs-meta-value">
+          <span class="cs-product-pill pill-closr">Xpert Closr</span>
+          <span class="cs-product-pill pill-iq">Xpert IQ</span>
+          <span class="cs-product-pill pill-ats">Xpert ATS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="cs-stats-bar">
+  <div class="cs-stats-row">
+    <div class="cs-stat reveal">
+      <div class="cs-stat-val">38%</div>
+      <div class="cs-stat-lbl">more engagements closed</div>
+    </div>
+    <div class="cs-stat reveal reveal-d1">
+      <div class="cs-stat-val">26 days</div>
+      <div class="cs-stat-lbl">shorter average deal cycle</div>
+    </div>
+    <div class="cs-stat reveal reveal-d2">
+      <div class="cs-stat-val">6 hrs</div>
+      <div class="cs-stat-lbl">monthly P&amp;L, down from 4 weeks</div>
+    </div>
+    <div class="cs-stat reveal reveal-d3">
+      <div class="cs-stat-val">220 hrs</div>
+      <div class="cs-stat-lbl">finance time saved every month</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- THE CHALLENGE -->
+  <div class="cs-section">
+    <div class="cs-section-label">The challenge</div>
+    <h2>Three continents. One version of the truth — a week out of date.</h2>
+    <p>With partners and engagement teams spread across New York, London and Singapore, this firm had a fundamental visibility problem. Business development ran on relationship instinct and quarterly reviews — by the time a partner in London knew the Singapore office had already approached the same prospect, the damage was done.</p>
+    <p>Finance was worse. Every month, the CFO's team spent the better part of three weeks manually consolidating P&amp;Ls across five currencies, chasing subsidiary numbers via email and correcting errors that only surfaced at the end of the process. The result was a monthly close that landed far too late to be useful for the decisions that actually needed making.</p>
+    <p>The tools they had weren't the problem — they had no shortage of software. The problem was that none of it spoke to each other, none of it was built for how a consulting firm actually operates, and none of it gave leadership a live picture of what was happening right now.</p>
+  </div>
+
+  <!-- THE QUOTE -->
+  <div class="cs-quote-block">
+    <p>"We had tools no one really used — they felt like data compliance, not insight. Xpert Closr changed that completely. The dashboards are genuinely something our partners look forward to opening. And because everything is live, we know exactly where our pipelines stand at any moment. It honestly feels like magic — and our numbers show it."</p>
+    <cite>— Managing Partner</cite>
+  </div>
+
+  <!-- THE SOLUTION -->
+  <div class="cs-section">
+    <div class="cs-section-label">The solution</div>
+    <h2>Three products. One connected operating picture.</h2>
+    <p>Xpert Lab AI deployed three products over a 20-week engagement, sequenced to deliver value at each phase rather than asking the firm to wait for a big-bang go-live.</p>
+
+    <div class="cs-solution-grid">
+      <div class="cs-solution-card">
+        <div class="cs-solution-card-dot" style="background:#C4622D;"></div>
+        <h4>Xpert Closr</h4>
+        <p>Live engagement pipeline across all three offices. Weighted stages, prospect deduplication and partner-level visibility — so no opportunity goes cold unnoticed.</p>
+      </div>
+      <div class="cs-solution-card">
+        <div class="cs-solution-card-dot" style="background:#1E8A62;"></div>
+        <h4>Xpert IQ</h4>
+        <p>Automated multi-currency P&amp;L consolidation pulling directly from subsidiary data. The monthly finance marathon became a six-hour process.</p>
+      </div>
+      <div class="cs-solution-card">
+        <div class="cs-solution-card-dot" style="background:#2B6CB0;"></div>
+        <h4>Xpert ATS</h4>
+        <p>Talent pipelines consolidated into a single view. No more spreadsheets per office. Talent pipelines have never run smoother.</p>
+      </div>
+    </div>
+
+    <p>All three products were deployed into the firm's own cloud account — no shared SaaS, no data leaving their environment. The firm retained full ownership of everything from day one.</p>
+  </div>
+
+  <!-- THE RESULTS -->
+  <div class="cs-section">
+    <div class="cs-section-label">The results</div>
+    <h2>ROI from month 3. Numbers that speak for themselves.</h2>
+    <p>By the end of the 20-week deployment, the firm had a fundamentally different operating rhythm. Partners opened Closr dashboards the way they used to check email — as the first thing in the morning. Finance closed the month in days, not weeks.</p>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item reveal">
+        <div class="cs-result-val">38%</div>
+        <div class="cs-result-text">
+          <h5>More engagements closed</h5>
+          <p>Live pipeline visibility meant partners could act on opportunities the moment they moved, not a week later.</p>
+        </div>
+      </div>
+      <div class="cs-result-item reveal reveal-d1">
+        <div class="cs-result-val">26d</div>
+        <div class="cs-result-text">
+          <h5>Shorter average deal cycle</h5>
+          <p>Weighted pipeline and automated follow-up prompts compressed the time from first contact to signed engagement.</p>
+        </div>
+      </div>
+      <div class="cs-result-item reveal reveal-d2">
+        <div class="cs-result-val">6h</div>
+        <div class="cs-result-text">
+          <h5>Monthly P&amp;L consolidation</h5>
+          <p>Down from nearly four weeks of manual effort across five currencies and three regional offices.</p>
+        </div>
+      </div>
+      <div class="cs-result-item reveal reveal-d3">
+        <div class="cs-result-val">220h</div>
+        <div class="cs-result-text">
+          <h5>Finance hours saved monthly</h5>
+          <p>Freed from reconciliation and data wrangling, the finance team could focus on actual analysis.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>Full deployment completed in 20 weeks. Return on investment achieved from month 3 — before the engagement was even fully embedded across all offices.</p>
+  </div>
+
+</div><!-- cs-content -->
+
+<!-- CTA -->
+<section class="cs-cta">
+  <div class="container">
+    <h2>See what this looks like<br>for <span>your firm</span>.</h2>
+    <p>Every firm is different. Tell us how yours operates today and we'll show you exactly what's possible in 30 minutes.</p>
+    <a href="/contact.html" class="btn btn-terra" style="font-size:15px; padding:14px 32px;">Book a Private Demo</a>
+  </div>
+</section>
+
+<footer class="pfooter">
+  <div class="pfooter-inner">
+    <div class="pfooter-brand">
+      <a href="/"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:30px;width:auto;"></a>
+      <p>AI-native products for Indian organisations. Built from the ground up with domain expertise, state-of-the-art technology and a bias for outcomes.</p>
+    </div>
+    <div class="pfooter-links">
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Products</div>
+        <a href="/products/xpert-ats.html">Xpert ATS</a>
+        <a href="/products/xpert-iq.html">Xpert IQ</a>
+        <a href="/products/xpert-closr.html">Xpert Closr</a>
+        <a href="/products/ai-accelx.html">AI AccelX</a>
+      </div>
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Company</div>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/contact.html">Book a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter-bottom">
+    <span>&#169; 2025 Xpert Lab AI. All rights reserved.</span>
+  </div>
+</footer>
+
+</div><!-- page-wrap -->
+
+<script>
+const pnav = document.getElementById("pnav");
+if (pnav) window.addEventListener("scroll", function(){ pnav.classList.toggle("scrolled", window.scrollY > 40); });
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal").forEach(function(el){
+  var r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("visible"); } else { obs.observe(el); }
+});
+</script>
+</body>
+</html>
