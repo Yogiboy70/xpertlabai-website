@@ -30,13 +30,14 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
   body {
     font-family: 'Inter', sans-serif;
     background: var(--cream);
     color: var(--text-dark);
     overflow-x: hidden;
+    max-width: 100%;
   }
 
   /* ─── SCROLLBAR ─── */
@@ -1314,7 +1315,10 @@
     .nav-dropdown-item { padding: 9px 8px; }
 
     /* Hero */
-    .hero-content { grid-template-columns: 1fr; padding: 80px 20px 48px; }
+    .hero { overflow: hidden; }
+    .hero-content { grid-template-columns: 1fr; padding: 80px 20px 48px; gap: 40px; }
+    .hero-left { min-width: 0; width: 100%; }
+    .hero-right { min-width: 0; width: 100%; }
     .hero-product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
     .hero-cta-group { flex-direction: column; gap: 10px; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; text-align: center; }
