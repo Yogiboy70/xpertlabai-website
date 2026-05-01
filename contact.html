@@ -44,6 +44,7 @@
       <span></span><span></span><span></span>
     </button>
   </div>
+  <button class="pnav-hamburger" id="pnavHamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -182,6 +183,21 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js">
+const pnavHamburger = document.getElementById('pnavHamburger');
+const pnavLinks = document.querySelector('.pnav-links');
+if (pnavHamburger && pnavLinks) {
+  pnavHamburger.addEventListener('click', function() {
+    pnavHamburger.classList.toggle('open');
+    pnavLinks.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.pnav') && pnavLinks.classList.contains('open')) {
+      pnavHamburger.classList.remove('open');
+      pnavLinks.classList.remove('open');
+    }
+  });
+}
+</script>
 </body>
 </html>

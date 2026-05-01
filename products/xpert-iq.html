@@ -27,6 +27,7 @@
     <li><a href="/contact.html">Contact</a></li>
     <li><a href="/contact.html" class="pnav-cta">Book a Call</a></li>
   </ul>
+  <button class="pnav-hamburger" id="pnavHamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page-wrap">
@@ -252,6 +253,21 @@ document.querySelectorAll(".reveal").forEach(function(el){
   var r = el.getBoundingClientRect();
   if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("visible"); } else { obs.observe(el); }
 });
+
+const pnavHamburger = document.getElementById('pnavHamburger');
+const pnavLinks = document.querySelector('.pnav-links');
+if (pnavHamburger && pnavLinks) {
+  pnavHamburger.addEventListener('click', function() {
+    pnavHamburger.classList.toggle('open');
+    pnavLinks.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.pnav') && pnavLinks.classList.contains('open')) {
+      pnavHamburger.classList.remove('open');
+      pnavLinks.classList.remove('open');
+    }
+  });
+}
 </script>
 </body>
 </html>

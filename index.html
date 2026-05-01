@@ -1241,22 +1241,111 @@
     .why-grid { grid-template-columns: 1fr; }
     .pricing-cards { grid-template-columns: 1fr; }
   }
+  /* ── Hamburger (homepage) ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    z-index: 1001;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text-dark); border-radius: 2px;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero-content { grid-template-columns: 1fr; padding: 90px 24px 48px; }
-    .hero-product-grid { grid-template-columns: 1fr 1fr; }
+    /* Nav */
+    nav { padding: 0 20px; height: 60px; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      background: rgba(245,240,232,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px 24px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      z-index: 999;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+      list-style: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links > li { border-bottom: 1px solid var(--border); }
+    .nav-links > li:last-child { border-bottom: none; margin-top: 12px; }
+    .nav-links a {
+      display: block; padding: 14px 0;
+      font-size: 16px !important; font-weight: 500 !important;
+      color: var(--text-dark) !important;
+    }
+    .nav-cta {
+      display: block !important; width: 100% !important;
+      text-align: center !important; padding: 13px 20px !important;
+      border-radius: 10px !important; font-size: 15px !important;
+    }
+    /* Products dropdown inline on mobile */
+    .nav-dropdown-wrap { position: static; }
+    .nav-dropdown-menu {
+      position: static !important;
+      opacity: 1 !important; visibility: visible !important;
+      pointer-events: all !important;
+      transform: none !important;
+      padding: 0 0 8px 0; min-width: 0;
+      background: transparent;
+    }
+    .nav-dropdown-inner {
+      box-shadow: none; border: none;
+      border-radius: 0; padding: 0 0 0 12px;
+      background: transparent;
+    }
+    .nav-dropdown-item { padding: 9px 8px; }
+
+    /* Hero */
+    .hero-content { grid-template-columns: 1fr; padding: 80px 20px 48px; }
+    .hero-product-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-cta-group { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; text-align: center; }
+
+    /* Sections */
+    section { padding: 56px 20px; }
+    .stats-bar { padding: 28px 20px; }
+    .stats-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-divider { display: none; }
+
+    /* Grids */
     .products-grid { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
     .process-steps::before { display: none; }
     .tech-capabilities { grid-template-columns: 1fr; }
     .problem-grid { grid-template-columns: 1fr; }
-    .cta-section { padding: 72px 24px; }
-    footer { padding: 48px 24px 32px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .pricing-cards { grid-template-columns: 1fr; }
+
+    /* Photo banners */
+    .cta-section { padding: 60px 20px; }
+
+    /* Footer */
+    footer { padding: 48px 20px 32px; }
     .footer-top { grid-template-columns: 1fr; gap: 24px; }
-    .shreyas-window { width: calc(100vw - 32px); right: 16px; }
-    section { padding: 64px 24px; }
-    .stats-bar { padding: 32px 24px; }
+    .footer-links-row { grid-template-columns: 1fr 1fr; }
+
+    /* Shreyas chatbot */
+    .shreyas-window { width: calc(100vw - 32px); right: 16px; bottom: 80px; }
+    .shreyas-trigger { bottom: 16px; right: 16px; }
   }
 </style>
 </head>
@@ -1284,6 +1373,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="/contact.html" class="nav-cta">Book a Call</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ─── HERO ─── -->
@@ -2196,6 +2286,22 @@ function sendMessage() {
 document.getElementById('chatInput').addEventListener('keydown', function(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
 });
+
+/* ── HAMBURGER NAV (homepage) ── */
+const navHamburger = document.getElementById('navHamburger');
+const navLinks = document.querySelector('.nav-links');
+if (navHamburger && navLinks) {
+  navHamburger.addEventListener('click', function() {
+    navHamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('nav') && navLinks.classList.contains('open')) {
+      navHamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    }
+  });
+}
 </script>
 
 </body>
