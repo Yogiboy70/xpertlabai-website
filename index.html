@@ -1629,7 +1629,7 @@
 <!-- ─── PHOTO BREAK: TECH TEAM ─── -->
 <div style="display:grid;grid-template-columns:1fr 1fr;">
   <div style="position:relative;height:380px;overflow:hidden;">
-    <img src="/images/ant-rozetsky-HXOllTSwrpM-unsplash.jpg" alt="Our team at work" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    <img src="/assets/images/ant-rozetsky-HXOllTSwrpM-unsplash.jpg" alt="Our team at work" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,35,0.75) 0%,rgba(15,25,35,0.1) 60%);display:flex;align-items:flex-end;">
       <div style="padding:32px 40px;color:white;">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;">Our Engineering Culture</div>
@@ -1638,7 +1638,7 @@
     </div>
   </div>
   <div style="position:relative;height:380px;overflow:hidden;">
-    <img src="/images/cherrydeck-rMILC1PIwM0-unsplash.jpg" alt="Team collaboration" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    <img src="/assets/images/cherrydeck-rMILC1PIwM0-unsplash.jpg" alt="Team collaboration" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,35,0.75) 0%,rgba(15,25,35,0.1) 60%);display:flex;align-items:flex-end;">
       <div style="padding:32px 40px;color:white;">
         <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;">Client Partnerships</div>
@@ -1864,7 +1864,7 @@
 
 <!-- ─── PHOTO BANNER ─── -->
 <div style="position:relative;width:100%;height:400px;overflow:hidden;">
-  <img src="/images/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="Enterprise clients" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;">
+  <img src="/assets/images/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="Enterprise clients" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;">
   <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(28,20,16,0.78) 0%,rgba(28,20,16,0.4) 55%,rgba(28,20,16,0.15) 100%);display:flex;align-items:center;">
     <div style="max-width:560px;padding:0 80px;color:white;">
       <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;">Built for India's Most Demanding Firms</div>
@@ -2104,122 +2104,4 @@ function openShreyas() {
   document.getElementById('shreyasLabel').style.display = 'none';
   if (document.getElementById('chatMessages').children.length === 0) {
     setTimeout(() => {
-      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build domain-intelligent software for Indian firms — recruitment support, finance intelligence, B2B pipeline management, and AI transformation programmes. Four platforms, each solving a real operational problem.<br><br>What would you like to know?`);
-      showQuickReplies(['Tell me about your ATS', 'Finance intelligence platform', 'How does deployment work?', 'Pricing overview']);
-    }, 300);
-  }
-}
-
-function closeShreyas() {
-  document.getElementById('shreyasWindow').classList.remove('open');
-  chatOpen = false;
-}
-
-function addMessage(role, html) {
-  const msgs = document.getElementById('chatMessages');
-  const msg = document.createElement('div');
-  msg.className = `msg ${role}`;
-
-  const avatar = document.createElement('div');
-  avatar.className = 'msg-avatar';
-  avatar.textContent = role === 'bot' ? '🤖' : 'You';
-
-  const bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.innerHTML = html;
-
-  msg.appendChild(avatar);
-  msg.appendChild(bubble);
-  msgs.appendChild(msg);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function showTyping() {
-  const msgs = document.getElementById('chatMessages');
-  const typing = document.createElement('div');
-  typing.className = 'msg bot';
-  typing.id = 'typingIndicator';
-  const av = document.createElement('div'); av.className = 'msg-avatar'; av.textContent = '🤖';
-  const ind = document.createElement('div'); ind.className = 'msg-bubble';
-  ind.innerHTML = '<div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
-  typing.appendChild(av); typing.appendChild(ind);
-  msgs.appendChild(typing);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function removeTyping() {
-  const t = document.getElementById('typingIndicator');
-  if (t) t.remove();
-}
-
-function showQuickReplies(options) {
-  const qr = document.getElementById('quickReplies');
-  qr.innerHTML = '';
-  options.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.className = 'qr';
-    btn.textContent = opt;
-    btn.onclick = () => { processInput(opt); };
-    qr.appendChild(btn);
-  });
-}
-
-function clearQuickReplies() {
-  document.getElementById('quickReplies').innerHTML = '';
-}
-
-function processInput(text) {
-  clearQuickReplies();
-  addMessage('user', text);
-  messageCount++;
-  document.getElementById('chatSend').disabled = true;
-
-  showTyping();
-
-  const delay = 900 + Math.random() * 600;
-  setTimeout(() => {
-    removeTyping();
-
-    // Hard limit: redirect after MAX_USER_TURNS
-    if (messageCount >= MAX_USER_TURNS) {
-      addMessage('bot', REDIRECT_MSG);
-      document.getElementById('chatInput').disabled = true;
-      document.getElementById('chatSend').disabled = true;
-      document.getElementById('chatInput').placeholder = 'Chat session complete — reach us by email.';
-      return;
-    }
-
-    const response = getResponse(text);
-    addMessage('bot', response);
-    document.getElementById('chatSend').disabled = false;
-
-    // After turn 2, start nudging toward conversion
-    if (messageCount === 2) {
-      showQuickReplies(['What does deployment look like?', 'Who are your clients?', 'I want to book a demo']);
-    } else if (messageCount === 3) {
-      showQuickReplies(['Book a private demo', 'Connect me with Yogesh']);
-    }
-  }, delay);
-}
-
-function sendMessage() {
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text || messageCount >= MAX_USER_TURNS) return;
-  input.value = '';
-  processInput(text);
-}
-
-function handleKey(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-}
-
-// Auto-dismiss label after 8s
-setTimeout(() => {
-  const lbl = document.getElementById('shreyasLabel');
-  if (lbl) lbl.style.opacity = '0';
-}, 8000);
-</script>
-
-</body>
-</html>
+      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build domain-intelligent software for Indian firms — recruitment support, finance intelligence, B2B pipeline management, and AI transformation programmes. Four platforms, each solving a real operational 
