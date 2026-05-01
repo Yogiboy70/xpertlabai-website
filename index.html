@@ -129,41 +129,69 @@
   .nav-cta:hover { background: var(--terracotta-dark) !important; transform: translateY(-1px) !important; }
   .nav-cta::after { display: none !important; }
 
+  /* ─── NAV DROPDOWN ─── */
+  .nav-dropdown-wrap { position: relative; }
+  .nav-dropdown-trigger { cursor: pointer; }
+  .nav-dropdown-menu {
+    position: absolute; top: calc(100% + 16px); left: 50%;
+    transform: translateX(-50%);
+    background: white; border: 1px solid rgba(196,98,45,0.15);
+    border-radius: 14px; padding: 10px; min-width: 220px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(-50%) translateY(-6px);
+    z-index: 100;
+  }
+  .nav-dropdown-wrap:hover .nav-dropdown-menu {
+    opacity: 1; visibility: visible; pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown-item {
+    display: flex; align-items: center; padding: 10px 14px;
+    border-radius: 8px; text-decoration: none;
+    transition: background 0.15s; color: var(--text-dark);
+  }
+  .nav-dropdown-item:hover { background: var(--cream); }
+  .nav-dropdown-item::after { display: none !important; }
+  .nav-dropdown-item strong { display: block; font-size: 13px; font-weight: 700; color: var(--text-dark); }
+  .nav-dropdown-item small { display: block; font-size: 11px; color: var(--text-light); margin-top: 1px; }
+
   /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
-    background: var(--navy);
+    background: var(--cream);
     position: relative;
     overflow: hidden;
     display: flex; align-items: center;
   }
   #hero-canvas {
     position: absolute; inset: 0;
-    opacity: 0.6;
+    opacity: 0.5;
   }
   .hero-grid-overlay {
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(196,98,45,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(196,98,45,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(196,98,45,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(196,98,45,0.06) 1px, transparent 1px);
     background-size: 60px 60px;
   }
   .hero-gradient-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(100px);
     pointer-events: none;
   }
   .hero-orb-1 {
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(196,98,45,0.25) 0%, transparent 70%);
-    top: -100px; left: -100px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(196,98,45,0.12) 0%, transparent 70%);
+    top: -150px; left: -150px;
     animation: orbFloat 8s ease-in-out infinite;
   }
   .hero-orb-2 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
-    bottom: -50px; right: 100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
+    bottom: -80px; right: 80px;
     animation: orbFloat 10s ease-in-out infinite reverse;
   }
   @keyframes orbFloat {
@@ -184,19 +212,19 @@
   .hero-label {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 6px 14px;
-    background: rgba(196,98,45,0.15);
-    border: 1px solid rgba(196,98,45,0.3);
+    background: rgba(196,98,45,0.1);
+    border: 1px solid rgba(196,98,45,0.25);
     border-radius: 100px;
     font-size: 12px;
     font-weight: 600;
-    color: var(--terracotta-light);
+    color: var(--terracotta);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 24px;
   }
   .hero-label-dot {
     width: 6px; height: 6px;
-    background: var(--terracotta-light);
+    background: var(--terracotta);
     border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
   }
@@ -209,16 +237,16 @@
     font-size: clamp(42px, 4.5vw, 72px);
     font-weight: 800;
     line-height: 1.1;
-    color: #FFFFFF;
+    color: var(--text-dark);
     margin-bottom: 24px;
     letter-spacing: -1px;
   }
-  .hero-headline .accent { color: var(--terracotta-light); }
-  .hero-headline .gold { color: var(--gold-light); }
+  .hero-headline .accent { color: var(--terracotta); }
+  .hero-headline .gold { color: var(--gold); }
   .hero-sub {
     font-size: 18px;
     line-height: 1.7;
-    color: rgba(255,255,255,0.65);
+    color: var(--text-mid);
     margin-bottom: 40px;
     max-width: 500px;
   }
@@ -246,9 +274,9 @@
   .btn-secondary {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 14px 28px;
-    background: transparent;
-    color: rgba(255,255,255,0.85);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: white;
+    color: var(--text-dark);
+    border: 1.5px solid var(--border);
     border-radius: 10px;
     font-size: 15px;
     font-weight: 500;
@@ -257,18 +285,19 @@
     cursor: pointer;
   }
   .btn-secondary:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.4);
+    background: var(--cream-light);
+    border-color: var(--terracotta);
+    color: var(--terracotta);
     transform: translateY(-2px);
   }
   .hero-trust {
     display: flex; align-items: center; gap: 20px;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--border);
   }
   .hero-trust-text {
     font-size: 12px;
-    color: rgba(255,255,255,0.4);
+    color: var(--text-light);
     text-transform: uppercase;
     letter-spacing: 1px;
     white-space: nowrap;
@@ -278,98 +307,67 @@
   }
   .trust-badge {
     padding: 5px 12px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: white;
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    color: rgba(255,255,255,0.5);
+    color: var(--text-mid);
     letter-spacing: 0.5px;
   }
 
-  /* ─── HERO RIGHT: TERMINAL CARD ─── */
+  /* ─── HERO RIGHT: PRODUCT CARDS ─── */
   .hero-right {
     position: relative;
   }
-  .terminal-card {
-    background: rgba(15, 20, 30, 0.8);
-    border: 1px solid rgba(196,98,45,0.3);
+  .hero-product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .hero-prod-card {
+    background: white;
+    border: 1px solid var(--border);
     border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(196,98,45,0.1);
-    backdrop-filter: blur(10px);
+    padding: 22px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: all 0.25s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   }
-  .terminal-header {
-    background: rgba(0,0,0,0.4);
-    padding: 12px 16px;
-    display: flex; align-items: center; gap: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+  .hero-prod-card:hover {
+    border-color: var(--terracotta);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(196,98,45,0.1);
   }
-  .terminal-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
+  .hero-prod-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
   }
-  .terminal-dot.red { background: #FF5F57; }
-  .terminal-dot.yellow { background: #FEBC2E; }
-  .terminal-dot.green { background: #28C840; }
-  .terminal-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    margin-left: 8px;
+  .hero-prod-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.85;
   }
-  .terminal-body {
-    padding: 24px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    line-height: 1.8;
+  .hero-prod-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    line-height: 1.2;
   }
-  .t-line { display: flex; gap: 10px; margin-bottom: 4px; }
-  .t-prompt { color: var(--terracotta-light); }
-  .t-cmd { color: rgba(255,255,255,0.85); }
-  .t-comment { color: rgba(255,255,255,0.3); }
-  .t-output { color: var(--gold-light); padding-left: 20px; }
-  .t-success { color: #4CAF84; padding-left: 20px; }
-  .t-info { color: #7BB8F4; padding-left: 20px; }
-  .t-cursor {
-    display: inline-block;
-    width: 8px; height: 14px;
-    background: var(--terracotta-light);
-    vertical-align: middle;
-    animation: blink 1s step-end infinite;
-  }
-  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-
-  /* Mini metric cards floating */
-  .hero-metric {
-    position: absolute;
-    background: rgba(245,240,232,0.95);
-    border: 1px solid rgba(196,98,45,0.2);
-    border-radius: 12px;
-    padding: 12px 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    backdrop-filter: blur(8px);
-  }
-  .hero-metric-1 { top: -24px; right: -24px; animation: floatCard1 6s ease-in-out infinite; }
-  .hero-metric-2 { bottom: 60px; left: -32px; animation: floatCard2 7s ease-in-out infinite; }
-  @keyframes floatCard1 {
-    0%,100% { transform: translateY(0) rotate(2deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
-  }
-  @keyframes floatCard2 {
-    0%,100% { transform: translateY(0) rotate(-1deg); }
-    50% { transform: translateY(-8px) rotate(-1deg); }
-  }
-  .metric-num {
-    font-size: 22px; font-weight: 700;
-    color: var(--terracotta);
-    line-height: 1;
-  }
-  .metric-label {
-    font-size: 11px; font-weight: 500;
+  .hero-prod-desc {
+    font-size: 12px;
     color: var(--text-light);
-    margin-top: 2px;
-    white-space: nowrap;
+    line-height: 1.5;
   }
 
   /* ─── STATS BAR ─── */
@@ -1246,7 +1244,7 @@
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hero-content { grid-template-columns: 1fr; padding: 90px 24px 48px; }
-    .hero-right { display: none; }
+    .hero-product-grid { grid-template-columns: 1fr 1fr; }
     .products-grid { grid-template-columns: 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
@@ -1267,11 +1265,18 @@
 <!-- ─── NAV ─── -->
 <nav id="mainNav">
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark"></div>
-    <span class="nav-logo-text">Xpert <span>Lab</span> AI</span>
+    <img src="/images/logo.png" alt="Xpert Lab AI" style="height:36px;width:auto;">
   </a>
   <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
+    <li class="nav-dropdown-wrap">
+      <a href="#products" class="nav-dropdown-trigger">Products ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="/products/xpert-ats.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#2B6CB0;margin-right:10px;"></span><div><strong>Xpert ATS</strong><small>Talent Acquisition</small></div></a>
+        <a href="/products/xpert-iq.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1E8A62;margin-right:10px;"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
+        <a href="/products/xpert-closr.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#C4622D;margin-right:10px;"></span><div><strong>Xpert Closr</strong><small>CRM & Pipeline</small></div></a>
+        <a href="/products/ai-accelx.html" class="nav-dropdown-item"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#7057A0;margin-right:10px;"></span><div><strong>AI AccelX</strong><small>AI Transformation</small></div></a>
+      </div>
+    </li>
     <li><a href="#tech">AI Lab</a></li>
     <li><a href="#proof">Clients</a></li>
     <li><a href="#about">About</a></li>
@@ -1298,7 +1303,7 @@
         for firms that <span class="accent">run India.</span>
       </h1>
       <p class="hero-sub">
-        Four enterprise platforms built from the ground up for executive search, finance, sales, and operations — not adapted from generic SaaS. Real AI. Real deployment. Real results.
+        Four enterprise platforms built from the ground up for recruitment, finance, sales, and operations — not adapted from generic SaaS. Real AI. Real deployment. Real results.
       </p>
       <div class="hero-ctas">
         <a href="mailto:yogesh@xpertlabai.com" class="btn-primary">
@@ -1307,7 +1312,7 @@
         </a>
         <button class="btn-secondary" onclick="openShreyas()">
           Ask Shreyas, our AI
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1a6 6 0 100 12A6 6 0 007 1zM7 10.5v.5M7 4.5a1.5 1.5 0 011 2.6c-.4.3-1 .6-1 1.4" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1a6 6 0 100 12A6 6 0 007 1zM7 10.5v.5M7 4.5a1.5 1.5 0 011 2.6c-.4.3-1 .6-1 1.4" stroke="var(--text-mid)" stroke-width="1.5" stroke-linecap="round"/></svg>
         </button>
       </div>
       <div class="hero-trust">
@@ -1320,37 +1325,46 @@
       </div>
     </div>
 
-    <!-- Right: Terminal -->
+    <!-- Right: Product cards -->
     <div class="hero-right">
-      <!-- Floating metrics -->
-      <div class="hero-metric hero-metric-1">
-        <div class="metric-num">14<span style="font-size:14px;color:#8A8A8A">wks</span></div>
-        <div class="metric-label">Excel → AI Ops</div>
-      </div>
-      <div class="hero-metric hero-metric-2">
-        <div class="metric-num">3×</div>
-        <div class="metric-label">Pipeline Velocity</div>
-      </div>
+      <div class="hero-product-grid">
 
-      <div class="terminal-card">
-        <div class="terminal-header">
-          <div class="terminal-dot red"></div>
-          <div class="terminal-dot yellow"></div>
-          <div class="terminal-dot green"></div>
-          <span class="terminal-title">xpert-lab-ai · platform-core · v2.4.1</span>
+        <div class="hero-prod-card">
+          <div class="hero-prod-icon" style="background:rgba(59,130,246,0.1);color:#3B82F6;">🎯</div>
+          <div>
+            <div class="hero-prod-tag" style="color:#3B82F6;">Talent Acquisition</div>
+            <div class="hero-prod-name">Xpert ATS</div>
+            <div class="hero-prod-desc">AI-native recruitment support for MSMEs and Indian recruitment firms</div>
+          </div>
         </div>
-        <div class="terminal-body">
-          <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">xpert deploy --product ats --tenant "Alpha Search"</span></div>
-          <div class="t-line"><span class="t-output">▸ Loading domain model: executive_search_india_v3</span></div>
-          <div class="t-line"><span class="t-output">▸ Configuring candidate classification engine</span></div>
-          <div class="t-line"><span class="t-success">✓ Pipeline intelligence: active</span></div>
-          <div class="t-line"><span class="t-success">✓ WhatsApp intake bridge: connected</span></div>
-          <div class="t-line" style="margin-top:10px"><span class="t-prompt">$</span><span class="t-cmd">xpert ingest --module finance --file Q1_data.xlsx</span></div>
-          <div class="t-line"><span class="t-info">→ Parsing 2,847 rows across 6 sheets</span></div>
-          <div class="t-line"><span class="t-info">→ Running anomaly detection + ratio analysis</span></div>
-          <div class="t-line"><span class="t-success">✓ CFO dashboard ready in 8.3s</span></div>
-          <div class="t-line" style="margin-top:10px"><span class="t-prompt">$</span><span class="t-cmd">shreyas engage --mode prospect<span class="t-cursor"></span></span></div>
+
+        <div class="hero-prod-card">
+          <div class="hero-prod-icon" style="background:rgba(20,184,166,0.1);color:#14B8A6;">💡</div>
+          <div>
+            <div class="hero-prod-tag" style="color:#14B8A6;">Finance Intelligence</div>
+            <div class="hero-prod-name">Xpert IQ</div>
+            <div class="hero-prod-desc">Upload invoices. Get boardroom dashboards in seconds</div>
+          </div>
         </div>
+
+        <div class="hero-prod-card">
+          <div class="hero-prod-icon" style="background:rgba(196,98,45,0.1);color:var(--terracotta);">🚀</div>
+          <div>
+            <div class="hero-prod-tag" style="color:var(--terracotta);">CRM & Pipeline</div>
+            <div class="hero-prod-name">Xpert Closr</div>
+            <div class="hero-prod-desc">B2B pipeline with sales discipline built in. Your cloud.</div>
+          </div>
+        </div>
+
+        <div class="hero-prod-card">
+          <div class="hero-prod-icon" style="background:rgba(139,92,246,0.1);color:#8B5CF6;">⚡</div>
+          <div>
+            <div class="hero-prod-tag" style="color:#8B5CF6;">AI Transformation</div>
+            <div class="hero-prod-name">AI AccelX</div>
+            <div class="hero-prod-desc">From Excel to AI-driven operations in 14 weeks</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1372,8 +1386,8 @@
       <div class="stat-label">Excel to AI-ops deployment</div>
     </div>
     <div class="stat-item reveal reveal-delay-3">
-      <div class="stat-number" data-target="100"><span class="stat-unit">₹</span>0<span class="stat-unit">L</span></div>
-      <div class="stat-label">Starting engagement / month</div>
+      <div class="stat-number">Q1</div>
+      <div class="stat-label">Measurable ROI from day one</div>
     </div>
   </div>
 </div>
@@ -1445,16 +1459,16 @@
         <div class="product-card-icon tag-blue" style="background:rgba(59,130,246,0.08);">🎯</div>
         <div class="product-tag tag-blue">Talent Acquisition</div>
         <h3 class="product-name">Xpert ATS</h3>
-        <p class="product-tagline">The ATS built for Indian executive search.</p>
-        <p class="product-desc">AI-powered candidate screening, classification, and pipeline management — built for the way Indian recruitment firms actually work. Cloud-based, unlimited users, live in days.</p>
+        <p class="product-tagline">Hire better. Automate the routine. Own your data.</p>
+        <p class="product-desc">AI-native recruitment support for MSMEs and Indian recruitment firms — automate screening, improve quality of hire, run analytics, cut cost. Unlimited users, live in days.</p>
         <ul class="product-features">
-          <li>AI resume parsing with domain-specific classification (not just keyword matching)</li>
-          <li>Intelligent candidate ranking by fit score, availability signals & market context</li>
-          <li>WhatsApp intake bridge — candidates submit profiles via WhatsApp, structured automatically</li>
-          <li>Client portal with real-time shortlist tracking and one-click feedback</li>
-          <li>Interview scheduling, offer tracking, fallout analytics</li>
-          <li>Retainer & success fee billing module built in</li>
-          <li>Multi-client mandate management with conflict-of-interest flags</li>
+          <li>AI resume parsing and classification — goes far beyond keyword matching</li>
+          <li>Candidate ranking by fit score, availability signals & quality-of-hire indicators</li>
+          <li>WhatsApp intake bridge — candidates submit CVs via WhatsApp, auto-structured</li>
+          <li>Recruitment analytics: time-to-fill, source quality, offer-to-join ratios</li>
+          <li>Interview scheduling, offer tracking, pipeline visibility end-to-end</li>
+          <li>Automated research and candidate enrichment — cut prep time by 70%</li>
+          <li>Multi-client job management with full data isolation</li>
         </ul>
         <a href="http://xpert-ats.com" class="product-link" target="_blank">Visit xpert-ats.com →</a>
       </div>
@@ -1533,7 +1547,7 @@
       <div class="tech-cap reveal">
         <div class="tech-cap-icon">🧠</div>
         <h3>Domain-Native NLP</h3>
-        <p>Our language models are fine-tuned on Indian executive search, MSME finance, and B2B sales data — not generic English corpora. They understand "retainer mandate", "placement fee waterfall", and "GST TDS netting" out of the box.</p>
+        <p>Our language models are fine-tuned on Indian recruitment, MSME finance, and B2B sales data — not generic English corpora. They understand "quality of hire", "placement analytics", "GST TDS netting", and "weighted pipeline" out of the box.</p>
         <span class="tech-tag">fine-tuned · domain-specific</span>
       </div>
 
@@ -1611,6 +1625,28 @@
     </div>
   </div>
 </section>
+
+<!-- ─── PHOTO BREAK: TECH TEAM ─── -->
+<div style="display:grid;grid-template-columns:1fr 1fr;">
+  <div style="position:relative;height:380px;overflow:hidden;">
+    <img src="/images/ant-rozetsky-HXOllTSwrpM-unsplash.jpg" alt="Our team at work" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,35,0.75) 0%,rgba(15,25,35,0.1) 60%);display:flex;align-items:flex-end;">
+      <div style="padding:32px 40px;color:white;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;">Our Engineering Culture</div>
+        <p style="font-size:15px;font-weight:600;line-height:1.5;color:white;max-width:320px;">Built by practitioners. Shipped by engineers who understand the domain.</p>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;height:380px;overflow:hidden;">
+    <img src="/images/cherrydeck-rMILC1PIwM0-unsplash.jpg" alt="Team collaboration" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,35,0.75) 0%,rgba(15,25,35,0.1) 60%);display:flex;align-items:flex-end;">
+      <div style="padding:32px 40px;color:white;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;">Client Partnerships</div>
+        <p style="font-size:15px;font-weight:600;line-height:1.5;color:white;max-width:320px;">We don't sell software and disappear. We stay in the room.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ─── HOW IT WORKS ─── -->
 <section class="process-section" id="process">
@@ -1769,10 +1805,10 @@
       <div class="reveal reveal-delay-2">
         <div class="why-visual">
           <div class="why-visual-content">
-            <h3 class="vis-headline">The ₹1L/month<br><span>question.</span></h3>
+            <h3 class="vis-headline">Make your team of 5<br><span>perform like 15.</span></h3>
             <p class="vis-sub">
-              That's what a senior hire costs you if it falls through. That's what a finance error costs when auditors find it. That's what two wasted months of pipeline management costs in consultant hours.<br><br>
-              Xpert Lab AI pays for itself in the first deal closed, the first senior hire landed, the first board meeting where your CFO walks in with data — not guesses.
+              Your people are good. They're just buried in admin, spreadsheets, and manual coordination that AI can handle in seconds.<br><br>
+              Xpert Lab AI gives every person on your team the leverage of three — faster decisions, cleaner data, and more time for the work that actually moves the business forward.
             </p>
             <div class="vis-checklist">
               <div class="vis-check">
@@ -1826,14 +1862,25 @@
   </div>
 </section>
 
+<!-- ─── PHOTO BANNER ─── -->
+<div style="position:relative;width:100%;height:400px;overflow:hidden;">
+  <img src="/images/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="Enterprise clients" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;">
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(28,20,16,0.78) 0%,rgba(28,20,16,0.4) 55%,rgba(28,20,16,0.15) 100%);display:flex;align-items:center;">
+    <div style="max-width:560px;padding:0 80px;color:white;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;">Built for India's Most Demanding Firms</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.2;color:white;font-weight:700;margin:0 0 16px;">The firms that survive disruption<br>are the ones that build for it.</h2>
+      <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,0.72);">We work with mid-size Indian organisations that are serious about operational excellence — not just interested in AI, but committed to deploying it where it matters.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-          <div class="nav-logo-mark"></div>
-          <span style="font-weight:700;font-size:15px;color:white;">Xpert <span style="color:var(--terracotta-light);">Lab</span> AI</span>
+          <img src="/images/logo.png" alt="Xpert Lab AI" style="height:30px;width:auto;opacity:0.85;">
         </div>
         <p>AI transformation partner for mid-size Indian firms.<br>Xpert Lab AI Private Limited, India.</p>
         <a href="mailto:yogesh@xpertlabai.com" class="footer-email">
@@ -1953,14 +2000,14 @@
       p.update();
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(196, 98, 45, ${p.alpha})`;
+      ctx.fillStyle = `rgba(196, 98, 45, ${p.alpha * 0.6})`;
       ctx.fill();
       for (let j = i + 1; j < particles.length; j++) {
         const q = particles[j];
         const dx = p.x - q.x, dy = p.y - q.y;
         const dist = Math.sqrt(dx*dx + dy*dy);
         if (dist < CONNECT_DIST) {
-          const opacity = (1 - dist / CONNECT_DIST) * 0.15;
+          const opacity = (1 - dist / CONNECT_DIST) * 0.09;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
@@ -1998,8 +2045,8 @@ const REDIRECT_MSG = `I've given you a solid picture of what we do. For anything
 
 const KNOWLEDGE_BASE = [
   {
-    patterns: ['ats', 'recruitment', 'hiring', 'talent', 'candidate', 'search firm', 'executive search', 'placement', 'mandate'],
-    response: `<b>Xpert ATS</b> is our platform built specifically for Indian executive search and recruitment firms.<br><br>It handles AI-powered candidate classification, WhatsApp CV intake (candidates submit via WhatsApp — it enters your system structured), client portals, shortlist tracking, and billing — retainer and success fee models both supported.<br><br>Most firms go live in under 2 weeks. It's built on how Indian search firms actually operate — not adapted from a Western ATS. Is your firm doing executive search, or internal talent acquisition?`
+    patterns: ['ats', 'recruitment', 'hiring', 'talent', 'candidate', 'search firm', 'executive search', 'placement', 'mandate', 'msme', 'recruiter'],
+    response: `<b>Xpert ATS</b> is our AI-native recruitment support system built for MSMEs and Indian recruitment firms of all kinds — from boutique search firms to internal TA teams hiring across functions.<br><br>It automates the routine: CV screening and classification, candidate research and enrichment, WhatsApp CV intake, interview scheduling. And it sharpens the judgment calls: quality-of-hire tracking, recruitment analytics, pipeline visibility.<br><br>Most teams go live in under 2 weeks. Unlimited users, flat-rate pricing. Are you an internal TA team or a recruitment firm?`
   },
   {
     patterns: ['finance', 'invoice', 'iq', 'excel', 'cfo', 'gst', 'reconciliation', 'accounts', 'financial', 'dashboard'],
@@ -2057,7 +2104,7 @@ function openShreyas() {
   document.getElementById('shreyasLabel').style.display = 'none';
   if (document.getElementById('chatMessages').children.length === 0) {
     setTimeout(() => {
-      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build domain-intelligent software for Indian executive search firms and MSME operations — four platforms, each solving a specific problem your team faces every day.<br><br>What would you like to know?`);
+      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build domain-intelligent software for Indian firms — recruitment support, finance intelligence, B2B pipeline management, and AI transformation programmes. Four platforms, each solving a real operational problem.<br><br>What would you like to know?`);
       showQuickReplies(['Tell me about your ATS', 'Finance intelligence platform', 'How does deployment work?', 'Pricing overview']);
     }, 300);
   }
