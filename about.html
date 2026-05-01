@@ -10,7 +10,7 @@
 <body>
 
 <nav class="pnav" id="pnav">
-  <a href="/" class="pnav-logo"><img src="/assets/images/logo.png" alt="Xpert Lab AI" style="height:34px;width:auto;"></a>
+  <a href="/" class="pnav-logo"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:34px;width:auto;"></a>
   <ul class="pnav-links">
     <li class="pnav-dropdown-wrap">
       <button>Products ▾</button>
@@ -184,7 +184,7 @@
 <footer class="pfooter">
   <div class="pfooter-inner">
     <div class="pfooter-brand">
-      <a href="/"><img src="/assets/images/logo.png" alt="Xpert Lab AI" style="height:30px;width:auto;"></a>
+      <a href="/"><img src="/assets/images/logo.svg" alt="Xpert Lab AI" style="height:30px;width:auto;"></a>
       <p>AI-native products for Indian organisations. Built from the ground up with domain expertise, state-of-the-art technology and a bias for outcomes.</p>
     </div>
     <div class="pfooter-links">
@@ -209,21 +209,15 @@
 </footer>
 
 <script>
-const revealEls = document.querySelectorAll('.reveal');
-if (revealEls.length) {
-  const io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(function(el) { io.observe(el); });
-}
-const nav = document.getElementById('pnav');
-if (nav) {
-  window.addEventListener('scroll', function() {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
-}
+const pnav = document.getElementById('pnav');
+if (pnav) window.addEventListener('scroll', function(){ pnav.classList.toggle('scrolled', window.scrollY > 40); });
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(function(el){
+  var r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add('visible'); } else { obs.observe(el); }
+});
 </script>
 
 </body>
