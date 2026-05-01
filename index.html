@@ -2032,8 +2032,15 @@ window.addEventListener('scroll', () => {
 /* ── INTERSECTION OBSERVER (REVEAL) ── */
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) {
+    el.classList.add('visible');
+  } else {
+    revealObserver.observe(el);
+  }
+});
 
 /* ── SHREYAS CHATBOT ENGINE ── */
 let chatOpen = false;
@@ -2104,4 +2111,47 @@ function openShreyas() {
   document.getElementById('shreyasLabel').style.display = 'none';
   if (document.getElementById('chatMessages').children.length === 0) {
     setTimeout(() => {
-      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build domain-intelligent software for Indian firms — recruitment support, finance intelligence, B2B pipeline management, and AI transformation programmes. Four platforms, each solving a real operational 
+
+      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build domain-intelligent AI platforms for Indian mid-size firms — recruitment, finance, CRM, and full AI transformation.<br><br>What can I help you with today?`);
+    }, 400);
+  }
+}
+
+function closeShreyas() {
+  document.getElementById('shreyasWindow').classList.remove('open');
+  chatOpen = false;
+  document.getElementById('shreyasLabel').style.display = '';
+}
+
+function addMessage(role, html) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + role;
+  div.innerHTML = html;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  addMessage('user', text);
+  input.value = '';
+  messageCount++;
+  setTimeout(function() {
+    if (messageCount >= MAX_USER_TURNS) {
+      addMessage('bot', REDIRECT_MSG);
+    } else {
+      addMessage('bot', getResponse(text));
+    }
+  }, 380);
+}
+
+document.getElementById('chatInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+</script>
+
+</body>
+</html>

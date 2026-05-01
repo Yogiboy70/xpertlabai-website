@@ -186,8 +186,46 @@
 
 </div>
 
-<footer class="pfooter"><div class="pfooter-inner"><div class="pfooter-top"><div class="pfooter-brand"><div style="display:flex;align-items:center;gap:10px;"><div class="pnav-mark"></div><span style="font-weight:700;font-size:14px;color:white;">Xpert <span style="color:var(--terracotta-light);">Lab</span> AI</span></div><p>AI transformation partner for mid-size Indian firms. Xpert Lab AI Private Limited, India.</p><a href="mailto:yogesh@xpertlabai.com" class="pfooter-email">📩 yogesh@xpertlabai.com</a></div><div class="pfooter-col"><h4>Products</h4><ul><li><a href="/products/xpert-ats.html">Xpert ATS</a></li><li><a href="/products/xpert-iq.html">Xpert IQ</a></li><li><a href="/products/xpert-closr.html">Xpert Closr</a></li><li><a href="/products/ai-accelx.html">AI AccelX</a></li></ul></div><div class="pfooter-col"><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="mailto:yogesh@xpertlabai.com">Contact</a></li><li><a href="https://xpert-ats.com" target="_blank">xpert-ats.com ↗</a></li></ul></div></div><div class="pfooter-bottom"><p>© 2026 Xpert Lab AI Private Limited. All rights reserved.</p><span class="pfooter-tagline">// domain_native · ai_first · built_in_india</span></div></div></footer>
-<script>window.addEventListener('scroll',()=>{document.getElementById('pnav').classList.toggle('scrolled',window.scrollY>40);});const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}}),{threshold:0.12});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));</script>
+
+</div><!-- end .page-wrap -->
+
+<footer class="pfooter">
+  <div class="pfooter-inner">
+    <div class="pfooter-brand">
+      <a href="/"><img src="/images/logo.png" alt="Xpert Lab AI" style="height:30px;width:auto;"></a>
+      <p>AI-native products for Indian organisations. Built from the ground up with domain expertise, state-of-the-art technology and a bias for outcomes.</p>
+    </div>
+    <div class="pfooter-links">
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Products</div>
+        <a href="/products/xpert-ats.html">Xpert ATS</a>
+        <a href="/products/xpert-iq.html">Xpert IQ</a>
+        <a href="/products/xpert-closr.html">Xpert Closr</a>
+        <a href="/products/ai-accelx.html">AI AccelX</a>
+      </div>
+      <div class="pfooter-col">
+        <div class="pfooter-col-title">Company</div>
+        <a href="/about.html">About</a>
+        <a href="mailto:yogesh@xpertlabai.com">Contact</a>
+        <a href="mailto:yogesh@xpertlabai.com">Book a Call</a>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter-bottom">
+    <span>&#169; 2025 Xpert Lab AI. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+const pnav = document.getElementById("pnav");
+if (pnav) window.addEventListener("scroll", function(){ pnav.classList.toggle("scrolled", window.scrollY > 40); });
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal").forEach(function(el){
+  var r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("visible"); } else { obs.observe(el); }
+});
+</script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
