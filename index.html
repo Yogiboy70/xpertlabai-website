@@ -2214,40 +2214,6 @@
   </div>
 </footer>
 
-<!-- ─── SHREYAS CHATBOT ─── -->
-<div class="shreyas-trigger" id="shreyasTrigger" onclick="openShreyas()">
-  <div class="shreyas-bubble-label" id="shreyasLabel">Ask Shreyas ✦</div>
-  <div style="position:relative;">
-    <div class="shreyas-avatar-btn">🤖</div>
-    <div class="shreyas-online-dot"></div>
-  </div>
-</div>
-
-<div class="shreyas-window" id="shreyasWindow">
-  <div class="chat-header">
-    <div class="chat-avatar">
-      🤖
-      <div class="chat-avatar-dot"></div>
-    </div>
-    <div class="chat-header-info">
-      <div class="chat-name">Shreyas</div>
-      <div class="chat-role">AI Assistant · Xpert Lab AI</div>
-    </div>
-    <button class="chat-close" onclick="closeShreyas()">✕</button>
-  </div>
-  <div class="chat-messages" id="chatMessages"></div>
-  <div class="quick-replies" id="quickReplies"></div>
-  <div class="chat-input-area">
-    <div class="chat-input-row">
-      <textarea class="chat-input" id="chatInput" placeholder="Ask me anything about Xpert Lab AI..." rows="1" onkeydown="handleKey(event)"></textarea>
-      <button class="chat-send" id="chatSend" onclick="sendMessage()">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14 8L2 2l3 6-3 6 12-6z" fill="white"/></svg>
-      </button>
-    </div>
-    <div class="chat-footer-note">Shreyas will connect you with our team when the time is right.</div>
-  </div>
-</div>
-
 <!-- ─── SCRIPTS ─── -->
 <script>
 /* ── CANVAS PARTICLE NETWORK ── */
@@ -2334,148 +2300,6 @@ document.querySelectorAll('.reveal').forEach(el => {
   }
 });
 
-/* ── SHREYAS CHATBOT ENGINE ── */
-let chatOpen = false;
-let messageCount = 0; // user messages sent
-const MAX_USER_TURNS = 4;
-
-const REDIRECT_EMAIL = 'yogesh@xpertlabai.com';
-const REDIRECT_MSG = `I've given you a solid picture of what we do. For anything more specific — pricing, a live demo, or a deep-dive into your use case — the best next step is a direct conversation with our team.<br><br>📧 <a href="mailto:${REDIRECT_EMAIL}" style="color:var(--terracotta);font-weight:600;">${REDIRECT_EMAIL}</a><br><br>We respond within 24 hours. No runaround — just a straight conversation.<br><br><a href="/contact.html" style="color:var(--terracotta);font-weight:600;">Or use the contact form →</a>`;
-
-const KNOWLEDGE_BASE = [
-  {
-    patterns: ['lens', 'interview', 'assessment', 'avatar', 'psychometric', 'hinglish', 'evaluate'],
-    response: `<b>Xpert Lens</b> runs a live, spoken interview with a lifelike AI interviewer — in English, Hinglish or Indian languages — followed by a short proctored assessment.<br><br>The report backs every finding with the candidate's own words. In our 50-person pilot, participants rated the findings <b>4.88 out of 5</b>.<br><br><a href="/products/xpert-lens.html" style="color:var(--terracotta);font-weight:600;">Explore Xpert Lens →</a>`
-  },
-  {
-    patterns: ['ats', 'hiring', 'talent', 'candidate', 'recruit', 'hr ', 'requisition', 'cv screening', 'hiring manager'],
-    response: `<b>Xpert ATS</b> is our AI-native applicant tracking system for in-house hiring teams in MSMEs and large enterprises.<br><br>It reads and ranks every CV, lets you search in plain English, sends hiring managers one-click review links and remembers every decision. A Middle East client says it saves around <b>40% of recruiters' time</b>.<br><br><a href="/products/xpert-ats.html" style="color:var(--terracotta);font-weight:600;">Explore Xpert ATS →</a> · <a href="https://xpert-ats.com" style="color:var(--terracotta);font-weight:600;">xpert-ats.com ↗</a>`
-  },
-  {
-    patterns: ['finance', 'invoice', ' iq', 'xpert iq', 'excel', 'cfo', 'gst', 'reconcil', 'accounts', 'accounting', 'mis', 'tally'],
-    response: `<b>Xpert IQ</b> is finance intelligence for MSMEs. It takes Excel and manual accounting off your team — reading invoices, reconciling bank and GST data, tracking receivables and building the monthly MIS — and answers your CFO in plain English.<br><br><a href="/products/xpert-iq.html" style="color:var(--terracotta);font-weight:600;">Explore Xpert IQ →</a>`
-  },
-  {
-    patterns: ['crm', 'closr', 'pipeline', 'sales', 'deals', 'b2b', 'forecast', 'lead'],
-    response: `<b>Xpert Closr</b> is a B2B CRM with sales discipline built in — live email inside every deal, an AI deal assistant, approvals and mandatory win/loss capture. It deploys on <i>your own</i> cloud, so your client data stays yours.<br><br><a href="/products/xpert-closr.html" style="color:var(--terracotta);font-weight:600;">Explore Xpert Closr →</a>`
-  },
-  {
-    patterns: ['automat', 'custom', 'agent', 'workflow', 'process', 'manual', 'whatsapp', 'email'],
-    response: `For work that is unique to your business, we build <b>custom AI agents</b> around your processes, documents and data — invoices, purchase orders, shared inboxes, reports, hand-offs between teams. We map it, build it and stay until it runs.<br><br><a href="/products/custom-ai-automation.html" style="color:var(--terracotta);font-weight:600;">Custom AI Automation →</a>`
-  },
-  {
-    patterns: ['job', 'resume', 'cv', 'career', 'xpertcareers', 'student', 'fresher'],
-    response: `Looking for a job? <b>xpertcareers.com</b> gives you a free, recruiter's-eye examination of your CV, benchmarked against 10,000+ CVs — plus AI coaching in English or Hinglish and a CV rebuild.<br><br><a href="https://xpertcareers.com" style="color:var(--terracotta);font-weight:600;">Check your CV free at xpertcareers.com ↗</a>`
-  },
-  {
-    patterns: ['video', 'reel', 'shorts', 'instagram', 'youtube', 'content', 'marketing'],
-    response: `<b>Xpert Reels</b> makes AI-generated reels, shorts and brand videos — script, AI scenes, Hinglish voice-over and edit — for professionals, creators and small brands.<br><br><a href="/products/xpert-reels.html" style="color:var(--terracotta);font-weight:600;">Explore Xpert Reels →</a>`
-  },
-  {
-    patterns: ['price', 'cost', 'pricing', 'how much', 'fee', 'afford', 'budget', 'commercial', 'rate'],
-    response: `We offer attractive pricing, shaped to the size of your business and the product you need — so the best route is a quick conversation.<br><br><a href="/contact.html" style="color:var(--terracotta);font-weight:600;">Ping us for pricing →</a><br>📧 <a href="mailto:yogesh@xpertlabai.com" style="color:var(--terracotta);font-weight:600;">yogesh@xpertlabai.com</a>`
-  },
-  {
-    patterns: ['data', 'security', 'cloud', 'server', 'privacy', 'dpdp', 'safe'],
-    response: `Each client runs on its own isolated cloud environment — and Xpert Closr can deploy inside your own cloud account. No shared databases, role-based access, audit trails and DPDP-aligned data handling by design.`
-  },
-  {
-    patterns: ['who', 'founder', 'team', 'yogesh', 'about', 'company', 'background', 'experience'],
-    response: `Xpert Lab AI combines 25 years of domain expertise inside Indian organisations with a lean team that has access to top AI and software professionals across geographies.<br><br>We spent two years in stealth — running real pilots and POCs — and built every product from the ground up. Not wrappers around existing tools.<br><br><a href="/about.html" style="color:var(--terracotta);font-weight:600;">About us →</a>`
-  },
-  {
-    patterns: ['demo', 'try', 'see', 'show', 'pilot', 'proof', 'case', 'client'],
-    response: `We do private demos, walked through live with your kind of data. You can also read our <a href="/case-studies/" style="color:var(--terracotta);font-weight:600;">case studies</a> — from an AI-native ATS in the Middle East to a 50-person Xpert Lens pilot.<br><br>To book: <a href="/contact.html" style="color:var(--terracotta);font-weight:600;">Request a demo →</a>`
-  },
-  {
-    patterns: ['timeline', 'how long', 'deploy', 'implementation', 'go live', 'time to'],
-    response: `Most single-product deployments go live in weeks, not months — because the domain mapping and engineering is already done. Custom automations are scoped to a clear outcome before we start.`
-  },
-];
-
-function getResponse(input) {
-  const lower = input.toLowerCase();
-  for (const item of KNOWLEDGE_BASE) {
-    if (item.patterns.some(p => lower.includes(p))) {
-      return item.response;
-    }
-  }
-  // Fallback
-  return `Good question — it may need a more specific answer than I can give here.<br><br>Xpert Lab AI builds AI-native products for Indian MSMEs and mid-size organisations: hiring (Xpert ATS, Xpert Lens), finance (Xpert IQ), sales (Xpert Closr) and custom AI automation — plus xpertcareers.com for job seekers and Xpert Reels for video.<br><br>Tell me a little about your business, or write to <a href="mailto:yogesh@xpertlabai.com" style="color:var(--terracotta);font-weight:600;">yogesh@xpertlabai.com</a>.`;
-}
-
-function openShreyas() {
-  const win = document.getElementById('shreyasWindow');
-  win.classList.add('open');
-  chatOpen = true;
-  document.getElementById('shreyasLabel').style.display = 'none';
-  if (document.getElementById('chatMessages').children.length === 0) {
-    setTimeout(() => {
-
-      addMessage('bot', `Hello! I'm <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build AI-native products for Indian MSMEs and mid-size organisations — hiring, AI interviews, finance, sales and custom automation.<br><br>What can I help you with today?`);
-      showSuggestedPrompts();
-    }, 400);
-  }
-}
-
-function showSuggestedPrompts() {
-  const qr = document.getElementById('quickReplies');
-  qr.innerHTML = '';
-  const prompts = [
-    'Tell me about Xpert ATS',
-    'What is Xpert Lens?',
-    'How does Xpert IQ help finance?',
-    'Can you automate our processes?',
-    'How do I get pricing?'
-  ];
-  prompts.forEach(function(p) {
-    const btn = document.createElement('button');
-    btn.className = 'qr';
-    btn.textContent = p;
-    btn.onclick = function() {
-      qr.innerHTML = '';
-      document.getElementById('chatInput').value = p;
-      sendMessage();
-    };
-    qr.appendChild(btn);
-  });
-}
-
-function closeShreyas() {
-  document.getElementById('shreyasWindow').classList.remove('open');
-  chatOpen = false;
-  document.getElementById('shreyasLabel').style.display = '';
-}
-
-function addMessage(role, html) {
-  const msgs = document.getElementById('chatMessages');
-  const div = document.createElement('div');
-  div.className = 'chat-msg ' + role;
-  div.innerHTML = html;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function sendMessage() {
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-  addMessage('user', text);
-  input.value = '';
-  messageCount++;
-  setTimeout(function() {
-    if (messageCount >= MAX_USER_TURNS) {
-      addMessage('bot', REDIRECT_MSG);
-    } else {
-      addMessage('bot', getResponse(text));
-    }
-  }, 380);
-}
-
-document.getElementById('chatInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-});
-
 /* ── HAMBURGER NAV (homepage) ── */
 const navHamburger = document.getElementById('navHamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -2493,5 +2317,6 @@ if (navHamburger && navLinks) {
 }
 </script>
 
+<script src="/js/shreyas.js" defer></script>
 </body>
 </html>
