@@ -9,6 +9,22 @@
 <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/page-styles.css">
 
+<style>
+.reel-row { display:grid; gap:20px; margin-top:32px; align-items:start; }
+.reel-row--wide { grid-template-columns:1fr 1fr; }
+.reel-row--tall { grid-template-columns:repeat(2, minmax(0, 300px)); justify-content:center; }
+.reel-item { margin:0; }
+.reel-frame { width:100%; border-radius:14px; overflow:hidden; background:#000; border:1px solid rgba(255,255,255,0.12); box-shadow:0 18px 50px rgba(0,0,0,0.35); }
+.reel-frame video { width:100%; height:100%; display:block; object-fit:cover; background:#000; }
+.reel-item figcaption { padding:12px 2px 0; }
+.reel-item figcaption strong { display:block; color:white; font-size:15px; margin-bottom:4px; }
+.reel-item figcaption span { display:block; color:rgba(255,255,255,0.55); font-size:13px; line-height:1.55; }
+@media (max-width: 768px) {
+  .reel-row--wide { grid-template-columns:1fr; }
+  .reel-row--tall { grid-template-columns:1fr 1fr; gap:12px; }
+  .reel-item figcaption span { font-size:12px; }
+}
+</style>
 </head>
 <body>
 <nav class="pnav" id="pnav">
@@ -46,12 +62,61 @@
       <h1>Your story, as a reel.<br><span style="color:#B83280;">Made with AI. Directed by people.</span></h1>
       <p class="hero-sub">Xpert Reels turns an idea into a finished short video — script, AI-generated scenes, Hinglish voice-over, captions and edit — ready for Instagram Reels and YouTube Shorts. For professionals building a personal brand, creators who need volume, and small businesses who want to look big.</p>
       <div class="hero-actions">
-        <a href="/contact.html?interest=reels" class="btn" style="background:#B83280;color:white;">Get a Reel Made</a><a href="#how" class="btn btn-outline">How it works</a>
+        <a href="/contact.html?interest=reels" class="btn" style="background:#B83280;color:white;">Get a Reel Made</a><a href="#showreel" class="btn btn-outline">Watch our work ↓</a>
       </div>
       </div>
       <div class="page-hero-img">
         <img src="/assets/images/campaign-creators-pypeCEaJeZY-unsplash.jpg" alt="Creating content on a laptop" style="object-position:center;">
       </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWREEL -->
+  <section class="section section--dark" id="showreel">
+    <div class="container">
+      <div class="section-label reveal" style="color:#F0A8CF;">Watch Our Work</div>
+      <h2 class="section-title reveal" style="color:white;">Made in our AI video pipeline.</h2>
+      <p class="reveal" style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.6);max-width:640px;margin-top:14px;">Every frame below was generated with AI, voiced and edited in-house — no studio, no shoot, no actors. Press play.</p>
+      <div class="reel-row reel-row--wide">
+        <figure class="reel-item reveal">
+          <div class="reel-frame" style="aspect-ratio:1.7778;">
+            <video controls playsinline preload="none" poster="/assets/video/eklavyas-thumb.jpg" aria-label="Eklavya's Thumb">
+              <source src="/assets/video/eklavyas-thumb.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><strong>Eklavya's Thumb</strong><span>A one-minute animated film on how AI brings equality — our founder's thought-leadership piece.</span></figcaption>
+        </figure>
+        <figure class="reel-item reveal">
+          <div class="reel-frame" style="aspect-ratio:1.7778;">
+            <video controls playsinline preload="none" poster="/assets/video/xpertcareers-cv-story.jpg" aria-label="Why your CV matters">
+              <source src="/assets/video/xpertcareers-cv-story.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><strong>Why your CV matters</strong><span>An animated story for xpertcareers.com — from a rejected CV to the job.</span></figcaption>
+        </figure>
+      </div>
+      <div class="reel-row reel-row--tall">
+        <figure class="reel-item reveal">
+          <div class="reel-frame" style="aspect-ratio:0.8000;">
+            <video controls playsinline preload="none" poster="/assets/video/cv-vs-bv-rishta.jpg" aria-label="CV vs BV — the rishta">
+              <source src="/assets/video/cv-vs-bv-rishta.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><strong>CV vs BV — the rishta</strong><span>A Hinglish comedy sketch: the family wants to see the boy's CV.</span></figcaption>
+        </figure>
+        <figure class="reel-item reveal">
+          <div class="reel-frame" style="aspect-ratio:0.6517;">
+            <video controls playsinline preload="none" poster="/assets/video/agentic-ai.jpg" aria-label="Agentic AI in 15 seconds">
+              <source src="/assets/video/agentic-ai.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><strong>Agentic AI in 15 seconds</strong><span>A short vertical explainer made for Instagram Reels and YouTube Shorts.</span></figcaption>
+        </figure>
+      </div>
+      <div class="reveal" style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+        <a href="/contact.html?interest=reels" class="btn" style="background:#B83280;color:white;">Get a Reel Made →</a>
+        <span style="font-size:14px;color:rgba(255,255,255,0.55);">Or email <a href="mailto:yogesh@xpertlabai.com" style="color:#E0C896;font-weight:700;text-decoration:none;">yogesh@xpertlabai.com</a></span>
       </div>
     </div>
   </section>
