@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Six Excel Workbooks to a Boardroom Dashboard in 8 Seconds | Xpert IQ | Xpert Lab AI</title>
+<meta name="description" content="How a mid-size professional services firm in Delhi NCR turned six Excel workbooks and 2,800+ invoice rows into a boardroom-ready financial narrative with Xpert IQ.">
+<link rel="canonical" href="https://www.xpertlabai.com/case-studies/finance-intelligence-pilot">
+<link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/page-styles.css">
+<style>
+.cs-hero { padding: 100px 0 72px; background: var(--navy); position: relative; overflow: hidden; }
+.cs-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(30,138,98,0.2) 0%, transparent 60%); }
+.cs-hero-bg { position:absolute; inset:0; background-size:cover; background-position:center; opacity:.18; }
+.cs-hero-inner { position: relative; z-index: 1; }
+.cs-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 32px; transition: color 0.2s; }
+.cs-back:hover { color: var(--gold); }
+.cs-back svg { width: 14px; height: 14px; }
+.cs-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #83bea8; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.cs-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 2px; background: #83bea8; }
+.cs-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.2vw, 50px); font-weight: 800; line-height: 1.2; color: white; margin-bottom: 24px; max-width: 760px; }
+.cs-hero h1 span { color: #83bea8; }
+.cs-meta-row { display: flex; gap: 32px; flex-wrap: wrap; padding: 24px 0; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+.cs-meta-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 4px; }
+.cs-meta-value { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+.cs-product-pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-right:6px; }
+.cs-stats-bar { background: white; border-bottom: 1px solid var(--border); }
+.cs-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+.cs-stat { padding: 36px 12px; text-align: center; border-right: 1px solid var(--border); }
+.cs-stat:last-child { border-right: none; }
+.cs-stat-val { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 800; color: #1E8A62; line-height: 1; margin-bottom: 6px; }
+.cs-stat-lbl { font-size: 13px; color: var(--text-light); line-height: 1.4; }
+.cs-content { max-width: 820px; margin: 0 auto; padding: 0 60px; }
+.cs-section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+.cs-section:last-child { border-bottom: none; }
+.cs-section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #1E8A62; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.cs-section-label::before { content: ''; display: inline-block; width: 20px; height: 2px; background: #1E8A62; }
+.cs-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.2vw, 32px); font-weight: 800; color: var(--text-dark); line-height: 1.25; margin-bottom: 20px; }
+.cs-section p { font-size: 16px; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+.cs-section p:last-child { margin-bottom: 0; }
+.cs-section ul { margin: 0 0 16px 20px; font-size: 16px; line-height: 1.85; color: var(--text-mid); }
+.cs-quote-block { border-left: 3px solid var(--gold); padding: 20px 0 20px 28px; margin: 48px 0 8px; }
+.cs-quote-block p { font-family: 'Playfair Display', serif; font-size: 21px; line-height: 1.6; color: var(--text-dark); font-style: italic; margin: 0 0 12px; }
+.cs-quote-block cite { font-size: 13px; color: var(--text-light); font-style: normal; }
+.cs-early-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(30,138,98,0.08); border: 1px solid rgba(30,138,98,0.2); border-radius: 8px; padding: 12px 18px; margin-top: 28px; font-size: 14px; color: #12523a; line-height: 1.5; }
+.cs-cta { background: var(--navy); padding: 72px 0; text-align: center; }
+.cs-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.2vw, 34px); font-weight: 800; color: white; margin-bottom: 16px; }
+.cs-cta h2 span { color: #83bea8; }
+.cs-cta p { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+@media (max-width: 860px) {
+  .cs-stats-row { grid-template-columns: 1fr 1fr; padding: 0 24px; }
+  .cs-stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-content { padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+<nav class="pnav" id="pnav">
+  <a href="/" class="pnav-logo" aria-label="Xpert Lab AI home"><img src="/assets/images/logo.svg" alt="Xpert Lab AI"></a>
+  <ul class="pnav-links">
+    <li class="pnav-dropdown-wrap">
+      <button type="button">Products ▾</button>
+      <div class="pnav-dropdown">
+        <div class="pnav-dropdown-inner">
+          <a href="/products/xpert-ats.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#2B6CB0"></span><div><strong>Xpert ATS</strong><small>Hiring & Talent Acquisition</small></div></a>
+          <a href="/products/xpert-lens.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#7057A0"></span><div><strong>Xpert Lens</strong><small>AI Interviews & Assessments</small></div></a>
+          <a href="/products/xpert-iq.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#1E8A62"></span><div><strong>Xpert IQ</strong><small>Finance Intelligence</small></div></a>
+          <a href="/products/xpert-closr.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#C4622D"></span><div><strong>Xpert Closr</strong><small>CRM & Sales Pipeline</small></div></a>
+          <a href="/products/custom-ai-automation.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#A07A2C"></span><div><strong>Custom AI Automation</strong><small>AI for Your Workplace</small></div></a>
+          <a href="/products/xpertcareers.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#0E7490"></span><div><strong>xpertcareers.com</strong><small>For Job Seekers</small></div></a>
+          <a href="/products/xpert-reels.html" class="pnav-dropdown-item"><span class="pnav-dot" style="background:#B83280"></span><div><strong>Xpert Reels</strong><small>AI Video & Content</small></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a href="/case-studies/" class="active-link">Case Studies</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/contact.html" class="pnav-cta">Book a Call</a></li>
+  </ul>
+  <button class="pnav-hamburger" id="pnavHamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-wrap">
+
+<section class="cs-hero">
+  <div class="cs-hero-bg" style="background-image:url('/assets/images/web/carlos-muza-hpjSkU2UYSU-unsplash-1200.jpg');"></div>
+  <div class="container cs-hero-inner">
+    <a href="/case-studies/" class="cs-back">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
+      All case studies
+    </a>
+    <div class="cs-eyebrow">Case Study · Finance · Delhi NCR</div>
+    <h1>Six Excel workbooks.<br><span>A boardroom dashboard in eight seconds.</span></h1>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><div class="cs-meta-label">Sector</div><div class="cs-meta-value">Professional services</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Size</div><div class="cs-meta-value">Mid-size</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Location</div><div class="cs-meta-value">Delhi NCR</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Product</div><div class="cs-meta-value"><span class="cs-product-pill" style="background:rgba(30,138,98,0.2);color:#83bea8;border:1px solid rgba(30,138,98,0.4);">Xpert IQ</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-stats-bar">
+  <div class="cs-stats-row">
+    <div class="cs-stat reveal"><div class="cs-stat-val">8 sec</div><div class="cs-stat-lbl">from upload to dashboard</div></div>
+    <div class="cs-stat reveal"><div class="cs-stat-val">2,800+</div><div class="cs-stat-lbl">invoice rows processed</div></div>
+    <div class="cs-stat reveal"><div class="cs-stat-val">6</div><div class="cs-stat-lbl">Excel workbooks combined</div></div>
+  </div>
+</div>
+
+<div class="cs-content">
+  <div class="cs-section">
+    <div class="cs-section-label">The challenge</div>
+    <h2>The monthly numbers were always a week late — and a day of somebody's life.</h2>
+    <p>Like most mid-size firms, this one ran its finance reporting from Excel. Billing data sat across several workbooks, each formatted slightly differently. Producing a view of revenue, cost and margin by client meant someone copying, cleaning and pivoting by hand — and the leadership team still couldn't easily ask a follow-up question.</p>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label">The solution</div>
+    <h2>Upload the files. Let Xpert IQ do the rest.</h2>
+    <p>In a live session with the CFO, six Excel workbooks covering more than 2,800 invoice rows were uploaded to Xpert IQ as they were — no templates, no re-formatting.</p>
+    <p>Xpert IQ detected the structure of each file, normalised and combined the data, and built a dashboard of revenue, cost, gross profit and margin by client, segment and period — with anomalies flagged automatically and a plain-English assistant ready to answer questions.</p>
+  </div>
+  <div class="cs-section">
+    <div class="cs-section-label">The results</div>
+    <h2>A financial narrative in eight seconds. No ERP. No analyst.</h2>
+    <p>From upload to a boardroom-ready financial narrative, complete with anomaly flags, took eight seconds. The questions that used to need another round of pivot tables — which clients drive margin, where costs jumped, how this year compares to last — were answered on screen, in the meeting.</p>
+    <div class="cs-early-badge">Pilot delivered — the next phase extends Xpert IQ to reconciliations, receivables and an automatic monthly MIS.</div>
+  </div>
+</div>
+
+<section class="cs-cta">
+  <div class="container">
+    <h2>Send us last month's numbers.<br><span>We'll show you what IQ sees.</span></h2>
+    <p>Share an anonymised export and we'll show you your own dashboard before you commit to anything.</p>
+    <a href="/contact.html?interest=iq" class="btn" style="background:#1E8A62;color:white;font-size:15px;padding:14px 32px;">See It With Your Data</a>
+    <p class="cta-note" style="margin-top:22px;">Or email us directly: <a href="mailto:yogesh@xpertlabai.com">yogesh@xpertlabai.com</a></p>
+  </div>
+</section>
+
+</div>
+
+<footer class="pfooter">
+  <div class="pfooter-inner">
+    <div class="pfooter-top">
+      <div class="pfooter-brand">
+        <a href="/" class="pfooter-logo"><img src="/assets/images/logo.svg" alt="Xpert Lab AI"></a>
+        <p>AI-native products for Indian MSMEs and mid-size organisations. They built AI on top of legacy; we built legacy on top of AI.</p>
+        <a href="mailto:yogesh@xpertlabai.com" class="pfooter-email">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 4l6 4 6-4" stroke="currentColor" stroke-width="1.2"/></svg>
+          yogesh@xpertlabai.com
+        </a>
+      </div>
+      <div class="pfooter-col">
+        <h4>Products</h4>
+        <ul>
+            <li><a href="/products/xpert-ats.html">Xpert ATS</a></li>
+            <li><a href="/products/xpert-lens.html">Xpert Lens</a></li>
+            <li><a href="/products/xpert-iq.html">Xpert IQ</a></li>
+            <li><a href="/products/xpert-closr.html">Xpert Closr</a></li>
+            <li><a href="/products/custom-ai-automation.html">Custom AI Automation</a></li>
+            <li><a href="/products/xpertcareers.html">xpertcareers.com</a></li>
+            <li><a href="/products/xpert-reels.html">Xpert Reels</a></li>
+        </ul>
+      </div>
+      <div class="pfooter-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/case-studies/">Case Studies</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="https://xpert-ats.com" target="_blank" rel="noopener">xpert-ats.com ↗</a></li>
+          <li><a href="https://xpertcareers.com" target="_blank" rel="noopener">xpertcareers.com ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pfooter-bottom">
+      <p>© 2026 Xpert Lab AI Private Limited. All rights reserved.</p>
+      <span class="pfooter-tagline">// built_in_india · domain_native · ai_first</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const pnav = document.getElementById("pnav");
+if (pnav) window.addEventListener("scroll", function(){ pnav.classList.toggle("scrolled", window.scrollY > 40); });
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("visible"); obs.unobserve(e.target); } });
+}, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal").forEach(function(el){
+  var r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("visible"); } else { obs.observe(el); }
+});
+const pnavHamburger = document.getElementById("pnavHamburger");
+const pnavLinks = document.querySelector(".pnav-links");
+if (pnavHamburger && pnavLinks) {
+  pnavHamburger.addEventListener("click", function() {
+    pnavHamburger.classList.toggle("open");
+    pnavLinks.classList.toggle("open");
+  });
+  document.addEventListener("click", function(e) {
+    if (!e.target.closest(".pnav") && pnavLinks.classList.contains("open")) {
+      pnavHamburger.classList.remove("open");
+      pnavLinks.classList.remove("open");
+    }
+  });
+}
+</script>
+</body>
+</html>

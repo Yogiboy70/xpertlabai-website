@@ -72,6 +72,13 @@
     reveals.forEach(el => el.classList.add('visible'));
   }
 
+  // --- Pre-select the product when arriving from a "talk to us" link (?interest=ats) ---
+  const interestSel = document.getElementById('interest');
+  if (interestSel) {
+    const want = new URLSearchParams(window.location.search).get('interest');
+    if (want && interestSel.querySelector('option[value="' + want + '"]')) interestSel.value = want;
+  }
+
   // --- Contact form — Formspree ---
   const form = document.getElementById('contactForm');
   if (form) {
