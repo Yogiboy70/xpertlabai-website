@@ -614,3 +614,9 @@ p.section-sub { font-size: 16px; line-height: 1.7; color: var(--text-mid); max-w
   .fit-two { grid-template-columns:1fr !important; }
   .photo-break-text { padding:0 24px !important; }
 }
+
+@media (max-width: 1180px) and (min-width: 769px) {
+  .pnav { padding: 0 24px; }
+  .pnav-links { gap: 20px; }
+  .pnav-links a, .pnav-links > li > button { font-size: 13px; white-space: nowrap; }
+}

@@ -1360,6 +1360,8 @@
   .nav-dropdown-menu { min-width:290px; }
   .hero-prod-card { text-decoration:none; color:inherit; padding:18px; }
   .hero-prod-name { font-size:17px; }
+  .hero-prod-card--wide { grid-column:1/-1; }
+  .hero-product-grid { gap:12px; }
   .products-grid .product-card.wide { grid-column:1/-1; }
   .product-card a.product-link + a.product-link { margin-left:18px; }
   .video-section { background:var(--dark-brown); position:relative; overflow:hidden; }
@@ -1397,6 +1399,16 @@
   .testimonial--featured cite strong { color:#E0C896; }
   .email-cta { margin-top:22px; font-size:14px; color:rgba(255,255,255,0.5); }
   .email-cta a { color:var(--gold-light); font-weight:700; text-decoration:none; }
+  @media (max-width: 1180px) and (min-width: 769px) {
+    .hero-content { grid-template-columns:1fr; gap:44px; padding:116px 40px 64px; }
+    .hero-product-grid { grid-template-columns:repeat(3,1fr); }
+    .nav-links { gap:20px; }
+    .nav-links a { font-size:13px; white-space:nowrap; }
+    nav { padding:0 24px; }
+  }
+  @media (max-width: 900px) and (min-width: 769px) {
+    .hero-product-grid { grid-template-columns:1fr 1fr; }
+  }
   @media (max-width: 1024px) {
     .cs-grid, .testimonial-grid { grid-template-columns:1fr 1fr; }
     .video-grid { grid-template-columns:1fr; gap:36px; }
@@ -1537,6 +1549,14 @@
             <div class="hero-prod-tag" style="color:#0E7490;">For Job Seekers</div>
             <div class="hero-prod-name">xpertcareers.com</div>
             <div class="hero-prod-desc">Free CV examination, AI interview coaching and CV rebuild.</div>
+          </div>
+        </a>
+        <a href="/products/xpert-reels.html" class="hero-prod-card hero-prod-card--wide">
+          <div class="hero-prod-icon" style="background:rgba(184,50,128,0.1);color:#B83280;">🎬</div>
+          <div>
+            <div class="hero-prod-tag" style="color:#B83280;">AI Video &amp; Content</div>
+            <div class="hero-prod-name">Xpert Reels</div>
+            <div class="hero-prod-desc">AI-made reels, shorts and brand videos for people and small brands.</div>
           </div>
         </a>
       </div>
