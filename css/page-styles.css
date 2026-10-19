@@ -620,3 +620,8 @@ p.section-sub { font-size: 16px; line-height: 1.7; color: var(--text-mid); max-w
   .pnav-links { gap: 20px; }
   .pnav-links a, .pnav-links > li > button { font-size: 13px; white-space: nowrap; }
 }
+
+/* a single proof card gets room to breathe */
+.proof-grid:has(> .proof-card:only-child) { grid-template-columns: minmax(0, 680px); }
+.proof-grid > .proof-card:only-child .proof-metrics { flex-wrap: nowrap; }
+@media (max-width: 768px) { .proof-grid > .proof-card:only-child .proof-metrics { flex-wrap: wrap; } }

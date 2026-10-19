@@ -30,6 +30,9 @@
     { id: 'iq', words: ['xpert iq', ' iq', 'finance', 'financial', 'invoice', 'excel', 'spreadsheet', 'cfo', 'gst', 'reconcil', 'accounts', 'accounting', 'mis', 'tally', 'receivable', 'payable', 'ledger'],
       answer: '<b>Xpert IQ</b> is finance intelligence for MSMEs. It takes the Excel sheets and manual accounting work off your team — reading invoices, reconciling bank and GST data, tracking receivables and building the monthly MIS — and answers your CFO\'s questions in plain English.<br><br>' + A('/products/xpert-iq.html', 'Explore Xpert IQ →'),
       next: ['Can I see it with my own data?', 'Does it work with Tally?', 'How do I get pricing?'] },
+    { id: 'insights', words: ['xpert insights', 'insights', 'insight', 'market research', 'research', 'survey', 'consumer', 'brand health', 'brand tracking', 'tracking study', 'nps', 'segmentation', 'regression', 'xlstat', 'spss', 'respondent', 'questionnaire', 'u&a', 'usage and attitude', 'perception'],
+      answer: '<b>Xpert Insights</b> turns years of consumer research — brand tracking, usage-and-attitude studies, surveys — into something your team can simply ask in plain English.<br><br>The statistics are computed exactly as your analysts compute them (we matched a published benchmark to six decimal places); the AI only explains them, and every number links back to its source.<br><br>' + A('/products/xpert-insights.html', 'Explore Xpert Insights →') + ' · ' + A('/case-studies/research-intelligence-parity.html', 'Case study'),
+      next: ['What can I ask it?', 'Can it match our statistics software?', 'How do I get pricing?'] },
     { id: 'closr', words: ['xpert closr', 'closr', 'crm', 'pipeline', 'sales', 'deal', 'b2b', 'forecast', 'lead', 'prospect', 'win/loss'],
       answer: '<b>Xpert Closr</b> is a B2B CRM with sales discipline built in — live email inside every deal, an AI deal assistant, approval workflows and mandatory win/loss capture.<br><br>It deploys on <i>your own</i> cloud, so your client data stays yours.<br><br>' + A('/products/xpert-closr.html', 'Explore Xpert Closr →'),
       next: ['Where is my data stored?', 'How do I get pricing?'] },
@@ -49,13 +52,13 @@
       answer: 'Each client runs on its own isolated cloud environment — and Xpert Closr can deploy inside your own cloud account. No shared databases, role-based access, audit trails and DPDP-aligned data handling by design.',
       next: ['Book a demo'] },
     { id: 'cases', words: ['case', 'client', 'customer', 'proof', 'result', 'example', 'middle east', 'reference', 'testimonial'],
-      answer: 'A few of our stories: an <b>AI-native ATS in the Middle East</b> that gave recruiters 40% of their time back, a <b>50-person Xpert Lens pilot</b> rated 4.88 / 5, a pan-India manufacturer that consolidated hiring across plants, and a finance team that went from six Excel workbooks to a dashboard in eight seconds.<br><br>' + A('/case-studies/', 'All case studies →'),
+      answer: 'A few of our stories: an <b>AI-native ATS in the Middle East</b> that gave recruiters 40% of their time back, a <b>50-person Xpert Lens pilot</b> rated 4.88 / 5, consumer-research statistics matched to six decimal places, a pan-India manufacturer that consolidated hiring across plants, and a finance team that went from six Excel workbooks to a dashboard in eight seconds.<br><br>' + A('/case-studies/', 'All case studies →'),
       next: ['Tell me about Xpert ATS', 'Tell me about Xpert Lens'] },
     { id: 'company', words: ['who are you', 'founder', 'team', 'yogesh', 'about you', 'about xpert', 'company', 'background', 'experience', 'stealth', 'legacy'],
       answer: 'Xpert Lab AI builds AI-native products for Indian MSMEs and mid-size organisations. <i>They built AI on top of legacy; we built legacy on top of AI.</i><br><br>We combine 25 years of domain expertise with a lean team that has access to top AI and software professionals across geographies, and spent two years in stealth running real pilots and POCs. Nothing is a wrapper around someone else\'s tool.<br><br>' + A('/about.html', 'About us →'),
       next: ['What products do you have?', 'Show me case studies'] },
     { id: 'products', words: ['product', 'what do you do', 'what do you offer', 'services', 'solutions', 'suite'],
-      answer: 'Seven products:<br>• ' + A('/products/xpert-ats.html', 'Xpert ATS') + ' — AI-native hiring<br>• ' + A('/products/xpert-lens.html', 'Xpert Lens') + ' — live AI interviews<br>• ' + A('/products/xpert-iq.html', 'Xpert IQ') + ' — finance intelligence<br>• ' + A('/products/xpert-closr.html', 'Xpert Closr') + ' — B2B CRM<br>• ' + A('/products/custom-ai-automation.html', 'Custom AI Automation') + '<br>• ' + A('/products/xpertcareers.html', 'xpertcareers.com') + ' — for job seekers<br>• ' + A('/products/xpert-reels.html', 'Xpert Reels') + ' — AI video',
+      answer: 'Eight products:<br>• ' + A('/products/xpert-ats.html', 'Xpert ATS') + ' — AI-native hiring<br>• ' + A('/products/xpert-lens.html', 'Xpert Lens') + ' — live AI interviews<br>• ' + A('/products/xpert-iq.html', 'Xpert IQ') + ' — finance intelligence<br>• ' + A('/products/xpert-insights.html', 'Xpert Insights') + ' — research &amp; consumer intelligence<br>• ' + A('/products/xpert-closr.html', 'Xpert Closr') + ' — B2B CRM<br>• ' + A('/products/custom-ai-automation.html', 'Custom AI Automation') + '<br>• ' + A('/products/xpertcareers.html', 'xpertcareers.com') + ' — for job seekers<br>• ' + A('/products/xpert-reels.html', 'Xpert Reels') + ' — AI video',
       next: ['Tell me about Xpert ATS', 'Tell me about Xpert IQ', 'Tell me about Xpert Lens'] },
     { id: 'demo', words: ['demo', 'try', 'trial', 'see it', 'show me', 'book', 'meeting', 'call', 'talk to', 'contact', 'get started', 'start'],
       answer: 'We do private demos, walked through with your kind of data — usually 30–45 minutes, no commitment.<br><br>' + A('/contact.html', 'Request a demo →') + '<br>📧 ' + MAIL,
@@ -69,6 +72,7 @@
     var p = location.pathname;
     if (p.indexOf('xpert-ats') > -1 || p.indexOf('ats') > -1 && p.indexOf('case') > -1) return 'ats';
     if (p.indexOf('lens') > -1) return 'lens';
+    if (p.indexOf('insights') > -1 || p.indexOf('research-intelligence') > -1) return 'insights';
     if (p.indexOf('xpert-iq') > -1 || p.indexOf('finance') > -1) return 'iq';
     if (p.indexOf('closr') > -1 || p.indexOf('consulting') > -1) return 'closr';
     if (p.indexOf('automation') > -1) return 'automation';
@@ -77,7 +81,7 @@
     if (p.indexOf('case-studies') > -1) return 'cases';
     return null;
   })();
-  var NAMES = { ats: 'Xpert ATS', lens: 'Xpert Lens', iq: 'Xpert IQ', closr: 'Xpert Closr', automation: 'Custom AI Automation', careers: 'xpertcareers.com', reels: 'Xpert Reels' };
+  var NAMES = { ats: 'Xpert ATS', lens: 'Xpert Lens', iq: 'Xpert IQ', insights: 'Xpert Insights', closr: 'Xpert Closr', automation: 'Custom AI Automation', careers: 'xpertcareers.com', reels: 'Xpert Reels' };
 
   function bestTopic(text) {
     var t = ' ' + text.toLowerCase() + ' ';
@@ -106,7 +110,7 @@
       return { answer: (prod ? 'Good question on <b>' + prod + '</b>. ' : '') + pr.answer.replace('/contact.html', prod ? '/contact.html?interest=' + topic.id : '/contact.html'), next: prod ? ['Book a demo', 'Tell me more about ' + prod] : pr.next };
     }
     if (topic) return topic;
-    return { answer: 'Good question — it may need a more specific answer than I can give here.<br><br>Xpert Lab AI builds AI-native products for Indian MSMEs and mid-size organisations: hiring (Xpert ATS, Xpert Lens), finance (Xpert IQ), sales (Xpert Closr) and custom AI automation — plus xpertcareers.com for job seekers and Xpert Reels for video.<br><br>' + FORM + '<br>📧 ' + MAIL, next: ['What products do you have?', 'Book a demo'] };
+    return { answer: 'Good question — it may need a more specific answer than I can give here.<br><br>Xpert Lab AI builds AI-native products for Indian MSMEs and mid-size organisations: hiring (Xpert ATS, Xpert Lens), finance (Xpert IQ), research (Xpert Insights), sales (Xpert Closr) and custom AI automation — plus xpertcareers.com for job seekers and Xpert Reels for video.<br><br>' + FORM + '<br>📧 ' + MAIL, next: ['What products do you have?', 'Book a demo'] };
   }
 
   var CSS = '' +
@@ -193,7 +197,7 @@
     function open() {
       win.classList.add('open'); trigger.querySelector('.sh-label').style.display = 'none';
       if (!msgs.children.length) {
-        var intro = 'Hello! I\'m <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build AI-native products for Indian MSMEs and mid-size organisations — hiring, AI interviews, finance, sales and custom automation — plus tools for job seekers and creators.';
+        var intro = 'Hello! I\'m <b>Shreyas</b>, the AI assistant at Xpert Lab AI.<br><br>We build AI-native products for Indian MSMEs and mid-size organisations — hiring, AI interviews, finance, research insights, sales and custom automation — plus tools for job seekers and creators.';
         if (PAGE_TOPIC && NAMES[PAGE_TOPIC]) intro += '<br><br>You\'re looking at <b>' + NAMES[PAGE_TOPIC] + '</b> — want the quick version?';
         add('bot', intro + '<br><br>What can I help you with?');
         var first = PAGE_TOPIC && NAMES[PAGE_TOPIC] ? ['Tell me about ' + NAMES[PAGE_TOPIC]] : [];
